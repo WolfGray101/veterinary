@@ -1,0 +1,305 @@
+@import './variables.css';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  width: (1440px - 240px * 2);
+  min-height: 150px;
+  display: flex;
+  padding: 80px 0;
+}
+
+.first-screen {
+  height: 850px;
+  background-image: url(../assets/Landing/Rectangle113.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 600px 627px;
+  align-items: center;
+
+  &__text-module {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 42%;
+    transform: translate(0, 15%);
+
+    .pets-header {
+      color: var(--font-headers-color);
+      font-size: 40px;
+      line-height: 54px;
+      font-weight: 700;
+    }
+    .pets-health {
+      color: var(--font-pets-health);
+      font-size: 40px;
+      line-height: 54px;
+      font-weight: 400;
+      margin-top: 1.5rem;
+    }
+  }
+}
+.animal-classes,
+.clinic-services {
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.Make-appointment {
+  margin-top: auto;
+  justify-self: flex-end;
+  background-color: var(--button-bg-color);
+  border: none;
+  border-radius: 30px;
+  width: 80%;
+  color: var(--font-white);
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: 600;
+  height: 74px;
+}
+.pets-header {
+  color: var(--font-headers-color);
+  font-size: 40px;
+  line-height: 54px;
+  font-weight: 700;
+}
+.pets-description {
+  color: var(--font-headers-color);
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 700;
+}
+.tab-block {
+  width: 100%;
+  position: relative;
+  min-height: 600px;
+
+  .tabs {
+    display: flex;
+    width: 100%;
+    .tab {
+      width: 20%;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .tab-active {
+      background-color: var(--tab-bg-color);
+      border: 3px solid var(--tab-border);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom: none;
+      z-index: 1;
+    }
+  }
+}
+
+.tabs-content {
+  display: flex;
+  position: absolute;
+  top: 60;
+  left: 0;
+  opacity: 0;
+  min-height: 540px;
+  width: 100%;
+  border: 3px solid var(--tab-border);
+  border-radius: 5px;
+  margin-top: -3px;
+  z-index: 0;
+  .tab-img {
+    width: 50%;
+    background-size: 400px 400px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Landing/Ellipse49.png);
+  }
+
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2rem 0;
+    gap: 1rem;
+    align-self: center;
+  }
+}
+.active-tab-content {
+  opacity: 1;
+  background-color: var(--tab-bg-color);
+}
+.animal-items {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1.2rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+  .animal-item {
+    width: 21%;
+    height: 150px;
+    border-radius: 7px;
+    border: 2px solid #d9d9d9;
+    position: relative;
+    display: flex;
+    padding: 35px;
+  }
+  .item-after,
+  .item-before {
+    position: absolute;
+  }
+  .item-after {
+    bottom: 15px;
+    right: 15px;
+    width: 85px;
+    height: 85px;
+  }
+  .item-before {
+    top: -.5rem;
+    left: 15px;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 88px;
+    color: #d9d9d9;
+  }
+  .item-title {
+    z-index: 2;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33px;
+  }
+}
+
+.about {
+  background-image: url(../assets/Landing/about_img1.png);
+  background-position: bottom right;
+  background-position-y: 30px;
+  background-size: 450px 538px;
+  background-repeat: no-repeat;
+}
+
+.about-text {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.about-statistic {
+  display: flex;
+  gap: 1rem;
+}
+.statistic-item {
+  width: ((450px-32px) / 3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.statistic-item > span:first-child {
+  font-size: 40px;
+  line-height: 40px;
+  color: var(--button-bg-color);
+  font-weight: 700;
+}
+.statistic-item > span:last-child {
+  font-size: 12px;
+  line-height: 16px;
+  color: #333;
+  font-weight: 400;
+}
+.feedback-section {
+  position: relative;
+}
+.feedback-section-content {
+  position: relative;
+
+  width: 100%;
+  color: var(--tab-border);
+  padding: 80px 118px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  margin: 50px 0 70px 0;
+  background-color: var(--tab-bg-color);
+  background-image: url(../assets/Landing/Ellipse50.png),
+    url(../assets/Landing/Ellipse491.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 65px 65px, 50px 50px;
+
+  .pets-header {
+    margin-top: 20px;
+  }
+  span {
+    width: 240px;
+  }
+}
+.sm-text {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.feedback-section-form {
+  background-color: #fff;
+  position: absolute;
+  right: 28px;
+  top: -25px;
+  border: 1px solid var(--font-pets-health);
+  border-radius: 7px;
+  height: 410px;
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+
+  form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    h3 {
+      font-size: 20px;
+      line-height: 26px;
+margin-bottom: 16px;
+    }
+    .Make-appointment {
+      width: 100%;
+      font-size: 13px;
+      height: 50px;
+      margin-top: 16px;
+    }
+  }
+  .input-text {
+    padding: 12px 0;
+    padding-left: 37px;
+    background-color: var(--input-bg);
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+  }
+  .input-checkbox {
+    align-self: flex-start;
+
+  }
+  .label-checkbox {
+    line-height: 20px;
+    color: var( --font-headers-color);
+  }
+  .checbox-group {
+    display: flex;
+    gap: .5rem;
+  }
+  img {
+    z-index: 2;
+    position: absolute;
+    top: -20px;
+    left: -35px;
+  }
+}
