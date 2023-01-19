@@ -1,10 +1,14 @@
+import { SetStateAction, useState } from 'react';
+
 import '../styles/Landing.scss';
+
 import doctor from '../assets/Landing/Rectangle137.png';
 import { animalClass, tabs } from './LandingObjects';
 
-// import animalIcon1 from '../assets/Landing/icons'
-
 export default function Landing(): JSX.Element {
+  const [active, setActive] = useState(0);
+
+  const onChange = (id: SetStateAction<number>) => setActive(id);
   const animalItem = animalClass.map((el) => (
     <div className="animal-item" key={el.title}>
       <div className="item-before">{el.num}</div>
@@ -14,10 +18,18 @@ export default function Landing(): JSX.Element {
   ));
   const tabItem = tabs.map((el, ind) => {
     let tabclasss = 'tab';
-    if (ind === 0) tabclasss = `${tabclasss} tab-active`;
+    if (ind === active) tabclasss = `${tabclasss} tab-active`;
 
     return (
-      <div className={tabclasss} key={`${el.title}${el.icon}`}>
+      <div
+        role="button"
+        className={tabclasss}
+        // id={ind}
+        tabIndex={ind}
+        onClick={() => onChange(ind)}
+        onKeyDown={() => onChange(ind)}
+        key={`${el.title}${el.icon}`}
+      >
         <div className="tab-icon">
           <img src={`${el.icon}`} alt="" />
         </div>
@@ -29,7 +41,7 @@ export default function Landing(): JSX.Element {
   const tabContent = tabs.map((el, ind) => {
     let classs = 'tabs-content';
 
-    if (ind === 0) classs = `${classs} active-tab-content`;
+    if (ind === active) classs = `${classs} active-tab-content`;
     const tabContentText = el.content.map((itemtext) => (
       <span className="sm-text" key={itemtext}>
         {itemtext}

@@ -7,7 +7,6 @@ function App(): JSX.Element {
     <div className="layout">
       <div>Header</div>
       <div className="layout_page">
-        {/* <Landing /> */}
         <main>
           <Routes>
             <Route path="/" element={<Landing />} />
