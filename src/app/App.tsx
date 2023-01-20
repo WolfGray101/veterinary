@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { Route, Routes } from 'react-router-dom';
 
+import Header from './Header';
+
 function App(): JSX.Element {
   return (
     <div className="layout">
-      <div>Header</div>
+      <Header />
       <div className="layout_page">
         <main>
           <Routes>
