@@ -163,6 +163,7 @@
   display: flex;
   align-items: center;
   color: red;
+  margin-bottom: -15px; // Компенсация размера сообщения об ошибки, чтобы контент снизу не уезжал вниз на размер сообщения
 }
 
 .passwordInput__container {

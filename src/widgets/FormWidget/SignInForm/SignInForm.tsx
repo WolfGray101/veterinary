@@ -19,6 +19,7 @@ interface ICheckboxProps {
 const EmailInput = (props: IInputProps): JSX.Element => {
   const { label, error, touched } = props;
   const fieldClasses = error && touched ? `${classes.input} ${classes.inputError}` : `${classes.input}`;
+  const errorMsg = error && touched ? <span className={classes.errorMessage}>{error}</span> : null;
 
   return (
     <div className={classes.inputContainer}>
@@ -26,6 +27,7 @@ const EmailInput = (props: IInputProps): JSX.Element => {
         <span>{label}</span>
       </label>
       <Field className={fieldClasses} id="email" name="email" type="email" placeholder="mail@mail.com" />
+      {errorMsg}
     </div>
   );
 };
@@ -38,6 +40,7 @@ const PasswordInput = (props: IInputProps): JSX.Element => {
   const icon = visible ? eye_disabled : eye;
   const alt = visible ? 'hide password' : 'show password';
   const inputType = visible ? 'text' : 'password';
+  const errorMsg = error && touched ? <span className={classes.errorMessage}>{error}</span> : null;
 
   const changeVisibility = ():void => {
     setVisible((prev) => !prev);
@@ -52,6 +55,7 @@ const PasswordInput = (props: IInputProps): JSX.Element => {
       <button type="button" className={classes.btn_toggleVisibility} onClick={changeVisibility}>
         <img src={icon} alt={alt} />
       </button>
+      {errorMsg}
     </div>
   );
 };
