@@ -45,7 +45,7 @@
       width: 340px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
   
       & .additionalActions {
         display: flex;
@@ -177,6 +177,11 @@
         bottom: 42px;
         background-color: transparent;
         border: 0;
+    }
+
+    & > .errorMessage {
+      position: relative;
+      bottom: 10px;
     }
 }
 
