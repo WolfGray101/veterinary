@@ -1,16 +1,16 @@
-import p126 from '../assets/Landing/icons/Rectangle126.png';
-import p127 from '../assets/Landing/icons/Rectangle127.png';
-import p128 from '../assets/Landing/icons/Rectangle128.png';
-import p129 from '../assets/Landing/icons/Rectangle129.png';
-import p130 from '../assets/Landing/icons/Rectangle130.png';
+import p126 from '../assets/Landing/icons/rectangle126.webp';
+import p127 from '../assets/Landing/icons/rectangle127.webp';
+import p128 from '../assets/Landing/icons/rectangle128.webp';
+import p129 from '../assets/Landing/icons/rectangle129.webp';
+import p130 from '../assets/Landing/icons/rectangle130.webp';
 
-import cat from '../assets/Landing/icons/Rectangle119.png';
-import dog from '../assets/Landing/icons/Rectangle120.png';
-import bird from '../assets/Landing/icons/Rectangle121.png';
-import griz from '../assets/Landing/icons/Rectangle122.png';
-import rept from '../assets/Landing/icons/Rectangle123.png';
-import rabbit from '../assets/Landing/icons/Rectangle124.png';
-import hor from '../assets/Landing/icons/Rectangle125.png';
+import cat from '../assets/Landing/icons/rectangle119.webp';
+import dog from '../assets/Landing/icons/rectangle120.webp';
+import bird from '../assets/Landing/icons/rectangle121.webp';
+import griz from '../assets/Landing/icons/rectangle122.webp';
+import rept from '../assets/Landing/icons/rectangle123.webp';
+import rabbit from '../assets/Landing/icons/rectangle124.webp';
+import hor from '../assets/Landing/icons/rectangle125.webp';
 
 export const animalClass = [
   {
@@ -101,4 +101,28 @@ export const tabs = [
       '- Подошла пора вакцинации',
     ],
   },
+];
+
+export const servicesList = [
+  'Косметические операции',
+  'Лечение переломов',
+  'Вызов доктора',
+  'Стационар',
+  'Дерматология',
+  'Диагностика',
+];
+export const aboutList = [
+  'Специалисты',
+  'Клиники',
+  'Лицензии',
+  'Отзывы',
+  'Акции',
+  'Контакты',
+  'Вакансии',
+];
+export const questionsList = [
+  'Статьи',
+  'Специалисты',
+  'Карта сайта',
+  'Подписаться на рассылку',
 ];

@@ -1,9 +1,10 @@
 import { SetStateAction, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../styles/Landing.scss';
 
-import doctor from '../assets/Landing/Rectangle137.png';
-import { animalClass, tabs } from './LandingObjects';
+import doctor from '../assets/Landing/rectangle137.webp';
+import { animalClass, tabs, servicesList, aboutList, questionsList } from '../const/LandingObjects';
 
 export default function Landing(): JSX.Element {
   const [active, setActive] = useState(0);
@@ -61,6 +62,22 @@ export default function Landing(): JSX.Element {
       </div>
     );
   });
+
+  const servicesContent = servicesList.map((el) => (
+    <Link to="/" key={`${el}`} className='spanlist'>
+      {el}
+    </Link>
+  ));
+  const aboutContent = aboutList.map((el) => (
+    <Link to="/" key={`${el}`} className='spanlist'>
+      {el}
+    </Link>
+  ));
+  const questionsContent = questionsList.map((el) => (
+    <Link to="/" key={`${el}`} className='spanlist'>
+      {el}
+    </Link>
+  ));
 
   return (
     <section className="container">
@@ -153,6 +170,33 @@ export default function Landing(): JSX.Element {
               <button className="Make-appointment">ЗАПИСАТЬСЯ ОНЛАЙН</button>
             </form>
           </div>
+        </div>
+      </section>
+      <section className="footer">
+        <div className="footer__services">
+          <h3 className="footer__title">Услуги</h3>
+          {servicesContent}
+        </div>
+        <div className="footer__about">
+          <h3 className="footer__title">Компания</h3>
+          {aboutContent}
+        </div>
+        <div className="footer__questions">
+          <h3 className="footer__title">Ответы на вопросы</h3>
+          {questionsContent}
+        </div>
+        <div className="footer__fbblock">
+          <div className="logo" />
+          <div className="footer__icongroup">
+            <span className="twitter" />
+            <span className="vk" />
+            <span className="fb" />
+            <span className="wa" />
+          </div>
+          <span className="licence">
+            Положение о политике персональных данных Все права защищены,
+            Ветклиника 2022
+          </span>
         </div>
       </section>
     </section>
