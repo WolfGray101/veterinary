@@ -5,7 +5,6 @@ import Landing from '../view/Landing';
 function App(): JSX.Element {
   return (
     <div className="layout">
-      <div>Header</div>
       <div className="layout_page">
         <main>
           <Routes>

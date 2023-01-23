@@ -1,6 +1,18 @@
-@import './variables.css';
+@import './variables.scss';
+
+  @font-face {
+    font-family: 'open-sans';
+    src: url(../assets/fonts/OpenSans-VariableFont.ttf) format('truetype');
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'open-sans';
+    src: url(../assets/fonts/OpenSans-VariableFont.ttf) format('truetype');
+    font-style: italic;
+  }
 
 * {
+  font-family: 'open-sans';
   margin: 0;
   box-sizing: border-box;
 }
@@ -34,13 +46,13 @@
     transform: translate(0, 15%);
 
     .pets-header {
-      color: var(--font-headers-color);
+      color:  $font-headers-color;
       font-size: 40px;
       line-height: 54px;
       font-weight: 700;
     }
     .pets-health {
-      color: var(--font-pets-health);
+      color:  ($font-pets-health);
       font-size: 40px;
       line-height: 54px;
       font-weight: 400;
@@ -56,24 +68,24 @@
 .Make-appointment {
   margin-top: auto;
   justify-self: flex-end;
-  background-color: var(--button-bg-color);
+  background-color:  ($button-bg-color);
   border: none;
   border-radius: 30px;
   width: 80%;
-  color: var(--font-white);
+  color:  ($font-white);
   line-height: 28px;
   font-size: 20px;
   font-weight: 600;
   height: 74px;
 }
 .pets-header {
-  color: var(--font-headers-color);
+  color:  ($font-headers-color);
   font-size: 40px;
   line-height: 54px;
   font-weight: 700;
 }
 .pets-description {
-  color: var(--font-headers-color);
+  color:  ($font-headers-color);
   font-size: 20px;
   line-height: 27px;
   font-weight: 700;
@@ -92,8 +104,8 @@
       padding: 0.5rem;
     }
     .tab-active {
-      background-color: var(--tab-bg-color);
-      border: 3px solid var(--tab-border);
+      background-color:  ($tab-bg-color);
+      border: 3px solid  ($tab-border);
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border-bottom: none;
@@ -110,7 +122,7 @@
   opacity: 0;
   min-height: 540px;
   width: 100%;
-  border: 3px solid var(--tab-border);
+  border: 3px solid  ($tab-border);
   border-radius: 5px;
   margin-top: -3px;
   z-index: 0;
@@ -133,7 +145,7 @@
 }
 .active-tab-content {
   opacity: 1;
-  background-color: var(--tab-bg-color);
+  background-color:  ($tab-bg-color);
 }
 .animal-items {
   display: flex;
@@ -205,7 +217,7 @@
 .statistic-item > span:first-child {
   font-size: 40px;
   line-height: 40px;
-  color: var(--button-bg-color);
+  color:  ($button-bg-color);
   font-weight: 700;
 }
 .statistic-item > span:last-child {
@@ -221,14 +233,14 @@
   position: relative;
 
   width: 100%;
-  color: var(--tab-border);
+  color:  ($tab-border);
   padding: 80px 118px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   margin: 50px 0 70px 0;
-  background-color: var(--tab-bg-color);
+  background-color:  ($tab-bg-color);
   background-image: url(../assets/Landing/ellipse50.webp),
     url(../assets/Landing/ellipse491.webp);
   background-repeat: no-repeat, no-repeat;
@@ -251,7 +263,7 @@
   position: absolute;
   right: 28px;
   top: -25px;
-  border: 1px solid var(--font-pets-health);
+  border: 1px solid  ($font-pets-health);
   border-radius: 7px;
   height: 410px;
   width: 500px;
@@ -279,7 +291,7 @@
   .input-text {
     padding: 12px 0;
     padding-left: 37px;
-    background-color: var(--input-bg);
+    background-color:  ($input-bg);
     border: none;
     border-radius: 10px;
     height: 50px;
@@ -289,7 +301,7 @@
   }
   .label-checkbox {
     line-height: 20px;
-    color: var(--font-headers-color);
+    color:  ($font-headers-color);
   }
   .checbox-group {
     display: flex;
@@ -305,10 +317,10 @@
 .footer {
   display: flex;
   width: 100%;
-  padding: 0 100px;
+  padding: 0 100px 1.5rem 100px;
   justify-content: space-between;
-  background-color: var(--input-bg);
-  color: var(--font-headers-color);
+  background-color:  ($input-bg);
+  color:  ($font-headers-color);
   font-weight: 600;
 
   &__title {
@@ -327,7 +339,7 @@
       line-height: 26px;
       font-size: 12px;
       text-decoration: none;
-      color: var(--font-headers-color);
+      color:  $font-headers-color;
     }
   }
   &__fbblock {
