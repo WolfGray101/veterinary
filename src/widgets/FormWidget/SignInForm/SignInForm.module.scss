@@ -194,7 +194,7 @@
         display: none;
 
         &:checked ~ span::before {
-            background: no-repeat center url('./Checkmark.svg');
+            background: no-repeat center url('../../../assets/SignInForm/checkmark.svg');
             background-color: #1676F3;
         }
     }

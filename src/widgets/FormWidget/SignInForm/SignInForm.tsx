@@ -1,9 +1,9 @@
 import { Formik, Field, Form } from 'formik';
 import { useState } from 'react';
 import classes from './SignInForm.module.scss';
-import image from './logo-middle.png';
-import eye from './eye.svg';
-import eye_disabled from './eye-disabled.svg';
+import image from '../../../assets/SignInForm/logo-middle.png';
+import eye from '../../../assets/SignInForm/eye.svg';
+import eye_disabled from '../../../assets/SignInForm/eye-disabled.svg';
 import signInValidationSchema from './schema';
 
 interface IInputProps {
