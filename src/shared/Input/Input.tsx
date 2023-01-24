@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { IUseInput } from '../../hooks/useInput';
-import classes from '../../styles/Input.module.scss';
+import classes from './Input.module.scss';
 import searchIcon from './search-icon.svg';
 
 interface IInput extends Omit<IUseInput, 'reset'> {
@@ -25,5 +23,3 @@ function Input({ value, onChange, icon = false } : IInput) {
 }
 
 export default Input;
-
-// Вопрос по хранению иконки
