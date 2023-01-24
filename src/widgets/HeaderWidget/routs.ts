@@ -1,12 +1,12 @@
-type RoutsHeaderArray = { nameLink: string, linkTo: string, };
+type RoutsHeaderArray = { label: string, path: string, };
 
 export const routsHeaderArray: Array<RoutsHeaderArray> = [
-  { nameLink: 'Список докторов', linkTo: '', },
-  { nameLink: 'Список процедур', linkTo: '', },
-  { nameLink: 'Список того', linkTo: '', },
-  { nameLink: 'О чем нибудь', linkTo: '', },
-  { nameLink: 'Список сосисок', linkTo: '', },
-  { nameLink: 'Контакты', linkTo: '', },
-  { nameLink: 'О нас', linkTo: '', },
-  { nameLink: 'Форум', linkTo: '', },
+  { label: 'Список докторов', path: '', },
+  { label: 'Список процедур', path: '', },
+  { label: 'Список того', path: '', },
+  { label: 'О чем нибудь', path: '', },
+  { label: 'Список сосисок', path: '', },
+  { label: 'Контакты', path: '', },
+  { label: 'О нас', path: '', },
+  { label: 'Форум', path: '', },
 ];

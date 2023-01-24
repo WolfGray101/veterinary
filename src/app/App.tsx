@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-wrap-multilines */
 import { Route, Routes } from 'react-router-dom';
 import Header from '../widgets/HeaderWidget';
 
