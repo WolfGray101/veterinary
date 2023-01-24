@@ -1,15 +1,14 @@
-import { useState } from 'react';
+import React from 'react';
 
+import { IUseInput } from '../../hooks/useInput';
 import classes from '../../styles/Input.module.scss';
 import searchIcon from './search-icon.svg';
 
-export interface IProps {
+interface IInput extends Omit<IUseInput, 'reset'> {
   icon?: boolean,
 }
 
-function Input({ icon = false } : IProps) {
-  const [value, setValue] = useState<string>('');
-
+function Input({ value, onChange, icon = false } : IInput) {
   const viewIcon = icon ? <img className={classes.inputContainer__icon} src={searchIcon} alt="search icon" /> : null;
 
   return (
@@ -19,7 +18,7 @@ function Input({ icon = false } : IProps) {
         className={classes.inputContainer__input}
         type="text"
         value={value}
-        onChange={(event) => setValue(() => event.target.value)}
+        onChange={onChange}
       />
     </div>
   );

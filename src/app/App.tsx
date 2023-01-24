@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { Route, Routes } from 'react-router-dom';
-import Input from '../shared/Input/Input';
 
 function App(): JSX.Element {
   return (
     <div className="layout">
-      <Input icon />
       <div>Header</div>
       <div className="layout_page">
         <main>
