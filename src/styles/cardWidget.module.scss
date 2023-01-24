@@ -1,30 +1,81 @@
+
+@import '../assets/fonts/Inter.css';
+
 .main {
    background-color: #EDEDED;
    display: flex;
    flex-direction: column;
    min-height: calc(100vh - 225px);
+
+   & .mainTitle {
+      margin: 27px auto 22px 33px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      color: #000000;
+   }
    & .cardList {
       display: flex;
       flex-wrap: wrap;
 
       & .card {
-         width: 370px;
-         height: 216px;
+         display:flex;
          background-color: #FFFFFF;
-         border-radius: 0 16px 16px 0;
-         margin: 0 0 25px 46px;
+         border-radius: 16px;
+         margin: 0 0 25px 33px;
          box-shadow: 2px 2px 5px #B5A8F0;
-      }
-      & .card:after {
-         content: '';
-         position: relative;
-         right: 16px;
-         bottom: 19px;
-         display: block;
-         height: 100%;
-         width: 16px;
-         background: #B5A8F0;
-         border-radius: 16px 0px 0px 16px;      
-      }
+
+
+         & .cardDecorativeLine {
+            width: 16px;
+            background-color: #B5A8F0;
+            margin-right: 22px;
+            border-radius: 16px 0px 0px 16px;
+         }
+         & .cardContent {
+            display: flex;
+            flex-direction: column;
+
+            & .title_cardContent {
+               margin-top: 15px;
+               font-family: 'Inter';
+               font-style: normal;
+               font-weight: 700;
+               font-size: 16px;
+               line-height: 19px;
+               color: #000000;
+            }
+            & .body_cardContent {
+               width: 277px;
+               height: 160px;
+               margin: 16px 57px 16px 0;
+               overflow: hidden;
+            }
+            & ul {
+               margin: 38px 0;
+
+               & .userInfo_cardContent {
+                  list-style-type: none;
+                  margin: 0;
+                  margin-right: 30px;
+                  width: 416px;              
+                  font-family: 'Nunito Sans';
+                  font-style: normal;
+                  font-weight: 600;
+                  font-size: 32px;
+                  line-height: 44px;
+                  color: #272727;
+               }
+            }
+         }         
+         & img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 38px 63px;
+         }
+      }     
    }
 }
