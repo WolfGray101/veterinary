@@ -1,0 +1,246 @@
+@import "../assets/fonts/Inter.css";
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   max-width: 1440px;
+   margin: 0 auto;
+   height: 60px;
+   background: #FEFEFE;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+   & .header-mobile_link {
+      display: none;
+   }
+   & .header-list-link {
+      display: flex;
+      padding: 0;
+
+      & .header-link {
+         white-space: nowrap;
+         list-style-type: none;
+         margin: auto 10px;
+
+         & .link {
+            text-decoration: none;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            color: #3A4045;
+        }
+       
+        & .active {
+         padding-bottom: 2px;
+         border-bottom: 2px solid #2E75B7;
+      }
+      }
+   }
+   & .header-account-info {
+      display: flex;
+      margin: auto;
+      
+      & .header-link-sign-in {
+         display: flex;
+         white-space: nowrap;
+         text-decoration: none;
+         margin-right: 20px;
+         padding: 6px 24px;
+         background: #1676F3;
+         border: 1px solid #1676F3;
+         box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.25);
+         border-radius: 3px;
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 12px;
+         line-height: 15px;
+         color: #FEFEFE;
+      }
+      & .header-link-register {
+         display: flex;
+         text-decoration: none;
+         padding: 6px 20px;
+         border: 1px solid #3A4045;
+         border-radius: 3px;
+         font-family: 'Inter';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 12px;
+         line-height: 15px;
+         color: #3A4045;
+      }
+      & .header-link-notifications {
+         margin-top: 7px;
+         width: 12px;
+         height: 16px;
+         background-image: url(../assets/img/Header-notifications.svg);
+         background-repeat: no-repeat;
+      }
+      & .header-link-notifications:after {
+         content: '';
+         width: 20px;
+         border: 1px solid #D9D9D9;
+         margin-left: 34px;
+      }
+      & .header-account-info__user-date {
+         display: flex;
+         margin-left: 42px;
+         flex-direction: column;
+
+         & .header-account-info__user-name {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            align-items: center;
+            color: #3A4045;
+         }
+         & .header-account-info__user-role {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.35);
+         }
+      }
+      & .header-link-user_more {
+         width: 15px;
+         height: 7px;
+         margin: auto 10px;
+         background-image: url(../assets/img/header-link-user_more_Vector.svg);
+         background-repeat: no-repeat;
+      }
+      & .header-img-user {
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+         overflow: hidden;
+      }
+   }
+}
+
+@media (max-width: 768.98px) { 
+   .header {
+      display: flex;
+      justify-content: space-between;
+      height: 50px;
+      background: #5496D4;
+      
+      & .header-mobile_menu {
+         background-image: url(../assets/img/Header-Vector.svg);
+         background-repeat: no-repeat;
+         margin: auto 21px;
+         width: 15px;
+         height: 15px;
+      }
+      & .header-account-info {
+         margin-right: 20px;
+
+         & .header-link-notifications {
+            background-image: url(../assets/img/Header-notifications_mobile-size.svg);
+         }       
+         & .header-link-notifications:after {
+            content: '';
+            width: 20px;
+            border: 1px solid #2E75B7;
+            margin-left: 24px;
+         }
+         & .header-account-info__user-date {
+            margin-left: 22px;
+   
+            & .header-account-info__user-name {
+               color: #FEFEFE;
+            }
+            & .header-account-info__user-role {
+               color:  rgba(255, 255, 255, 0.35);;
+            }
+         }
+         & .header-link-user_more {
+            background-image: url(../assets/img/header-link-user-mobile_more_Vector.svg);
+  
+         }
+         & .header-img-user {
+            background: #D9D9D9;
+            border: 1px solid #2E75B7;
+
+         }
+         & .header-mobile_link {
+            display: inline;
+            color: #FEFEFE;
+            width: 50px;
+            text-decoration: none;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 13px;
+            background: #2E75B7;
+            border: 1px solid #5496D4;
+            border-radius: 3px;
+            padding: 8px 9px 10px 43px;
+            background-image: url(../assets/img/Header-linck_Get_Started-Vector.svg);
+            background-repeat: no-repeat;
+            background-position: 10px 7px;
+         }  
+         & .header-link-sign-in {
+            display: none;
+         } 
+         & .header-link-register {
+            display: none;
+         }
+      }
+      & .header-list-link {
+         display: none;
+      }
+   } 
+}
+
+@media (min-width: 769px) and (max-width: 1119.98px) { 
+   .header {
+   
+      & .header-list-link {
+         display: flex;
+         padding: 0;
+   
+         & .header-link {
+            margin: auto 5px;          
+           & .active {
+            padding-bottom: 2px;
+            border-bottom: 2px solid #2E75B7;
+         }
+         }
+      }
+      & .header-account-info {
+         & .header-link-sign-in {
+            margin: 0;
+            margin-right: 10px;
+         }
+      }
+   }
+ }
+ @media (min-width: 890px) { 
+   .img-header {
+      width: 100px;
+      height: 50px;
+      margin: auto;
+      background-image: url('../assets/img/Rectangle\ 114.svg');
+      background-repeat: no-repeat;
+      background-position-y: -1px;     
+   }
+
+   .header-list-link::before {
+      content: '';
+      margin: auto 10px;
+      width: 0px;
+      height: 20px;
+      border: 1px solid #D9D9D9;
+   }
+ }
+ @media (min-width: 1120px) { 
+ 
+ }
