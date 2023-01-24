@@ -1,13 +1,7 @@
 @font-face {
   font-family: 'Inter';
-  src: url('Inter-Regular.ttf') format('truetype');
-  font-weight: 400;
+  src: url('./interFont/Inter-VariableFont_slnt\,wght.ttf');
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Inter';
-  src: url('Inter-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
+
