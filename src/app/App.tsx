@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { Route, Routes } from 'react-router-dom';
 
-import Footer from '../widgets/footerwidget';
+import Footer from '../widgets/FooterWidget';
 
 function App(): JSX.Element {
   return (
