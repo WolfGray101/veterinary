@@ -1,4 +1,4 @@
-@import url(../assets/fonts/Inter.css);
+@import url(../../assets/fonts/Inter.css);
 
 .header {
    display: flex;
@@ -75,7 +75,7 @@
          margin-top: 7px;
          width: 12px;
          height: 16px;
-         background-image: url(../assets/img/Header-notifications.svg);
+         background-image: url(../../assets/img/Header-notifications.svg);
          background-repeat: no-repeat;
       }
       & .link_notifications:after {
@@ -112,7 +112,7 @@
          width: 15px;
          height: 7px;
          margin: auto 10px;
-         background-image: url(../assets/img/header-link-user_more_Vector.svg);
+         background-image: url(../../assets/img/header-link-user_more_Vector.svg);
          background-repeat: no-repeat;
       }
       & .imgUser {
@@ -132,7 +132,7 @@
       background: #5496D4;
       
       & .menu_mobile {
-         background-image: url(../assets/img/Header-Vector.svg);
+         background-image: url(../../assets/img/Header-Vector.svg);
          background-repeat: no-repeat;
          margin: auto 21px;
          width: 15px;
@@ -142,7 +142,7 @@
          margin-right: 20px;
 
          & .linkNotifications {
-            background-image: url(../assets/img/Header-notifications_mobile-size.svg);
+            background-image: url(../../assets/img/Header-notifications_mobile-size.svg);
          }       
          & .linkNotifications:after {
             content: '';
@@ -161,7 +161,7 @@
             }
          }
          & .link_userMore {
-            background-image: url(../assets/img/header-link-user-mobile_more_Vector.svg);
+            background-image: url(../../assets/img/header-link-user-mobile_more_Vector.svg);
   
          }
          & .imgUser {
@@ -183,7 +183,7 @@
             border: 1px solid #5496D4;
             border-radius: 3px;
             padding: 8px 9px 10px 43px;
-            background-image: url(../assets/img/Header-linck_Get_Started-Vector.svg);
+            background-image: url(../../assets/img/Header-linck_Get_Started-Vector.svg);
             background-repeat: no-repeat;
             background-position: 10px 7px;
          }  
@@ -232,7 +232,7 @@
       width: 100px;
       height: 50px;
       margin: auto;
-      background-image: url('../assets/img/Rectangle\ 114.svg');
+      background-image: url('../../assets/img/Rectangle\ 114.svg');
       background-repeat: no-repeat;
       background-position-y: -1px;     
    }
