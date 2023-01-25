@@ -1,13 +1,10 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { Route, Routes } from 'react-router-dom';
 
-import CardWidget from '../widgets/cardWidget';
-
 function App(): JSX.Element {
   return (
     <div className="layout">
       <div>Header</div>
-      <CardWidget />
       <div className="layout_page">
         <main>
           <Routes>
