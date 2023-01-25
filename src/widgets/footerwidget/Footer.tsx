@@ -1,4 +1,4 @@
-import classes from './footer.module.scss';
+import classes from './Footer.module.scss';
 
 const Footer: React.FC = () => (
   <footer className={classes.footer}>
