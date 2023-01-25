@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from '../widgets/HeaderWidget';
 
+import Footer from '../widgets/FooterWidget';
+
 function App(): JSX.Element {
   return (
     <div className="layout">
@@ -19,6 +21,7 @@ function App(): JSX.Element {
             <Route path="/petFindPage" element={<div>PetFind Page</div>} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </div>
   );
