@@ -1,5 +1,5 @@
 @font-face {
   font-family: 'Open Sans';
-  src: url('./OpenSans-Bold.ttf');
+  src: url('./OpenSans-Bold.ttf') format('truetype');
   font-style: normal;
 }
