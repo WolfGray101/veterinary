@@ -73,8 +73,6 @@ export const CustomPagination = ({
     }
   }
 
-  console.log(list);
-
   return (
     <div className={classes.pagination}>
       <ul>
