@@ -1,5 +1,3 @@
-@import '../../assets/fonts/Inter.css';
-
 .footer {
    background-color: #656A6E;
    height: 80px;
@@ -7,7 +5,7 @@
    justify-content: center;
 
    & .footerInfo {
-      font-family: 'Open Sans';
+      font-family: 'Open Sans', 'Inter', sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
