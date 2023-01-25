@@ -3,7 +3,7 @@ export type Username = string;
 
 export type AuthBody = {
   username: Username;
-  password: Role;
+  password: string;
 };
 
 export interface IAuthResponse {
