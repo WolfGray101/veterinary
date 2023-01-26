@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 import '../styles/Landing.scss';
 
 import doctor from '../assets/Landing/rectangle137.webp';
-import { animalClass, tabs, servicesList, aboutList, questionsList } from '../const/LandingObjects';
+import {
+  animalClass,
+  tabs,
+  servicesList,
+  aboutList,
+  questionsList,
+} from '../const/LandingObjects';
 
 export default function Landing(): JSX.Element {
   const [active, setActive] = useState(0);
@@ -57,24 +63,26 @@ export default function Landing(): JSX.Element {
         <div className="tab-item">
           <span className="tab-title">{el.title}</span>
           {tabContentText}
-          <button className="Make-appointment">ЗАПИСАТЬСЯ НА ПРИЕМ</button>
+          <button className="Make-appointment Make-appointment-tab">
+            ЗАПИСАТЬСЯ НА ПРИЕМ
+          </button>
         </div>
       </div>
     );
   });
 
   const servicesContent = servicesList.map((el) => (
-    <Link to="/" key={`${el}`} className='spanlist'>
+    <Link to="/" key={`${el}`} className="spanlist">
       {el}
     </Link>
   ));
   const aboutContent = aboutList.map((el) => (
-    <Link to="/" key={`${el}`} className='spanlist'>
+    <Link to="/" key={`${el}`} className="spanlist">
       {el}
     </Link>
   ));
   const questionsContent = questionsList.map((el) => (
-    <Link to="/" key={`${el}`} className='spanlist'>
+    <Link to="/" key={`${el}`} className="spanlist">
       {el}
     </Link>
   ));
@@ -167,7 +175,9 @@ export default function Landing(): JSX.Element {
                   Я согласен на обработку моих персональных данных
                 </label>
               </div>
-              <button className="Make-appointment">ЗАПИСАТЬСЯ ОНЛАЙН</button>
+              <button className="Make-appointment Make-appointment-form">
+                ЗАПИСАТЬСЯ ОНЛАЙН
+              </button>
             </form>
           </div>
         </div>
@@ -194,8 +204,8 @@ export default function Landing(): JSX.Element {
             <span className="wa" />
           </div>
           <span className="licence">
-            Положение о политике персональных данных Все права защищены,
-            Ветклиника 2022
+            Положение о политике персональных данных
+            <p>Все права защищены, Ветклиника 2022</p>
           </span>
         </div>
       </section>
