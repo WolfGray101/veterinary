@@ -1,4 +1,10 @@
-export type Role = string;
+export enum Role {
+  ADMIN = 'ADMIN',
+  MANAGER = 'MANAGER',
+  DOCTOR = 'DOCTOR',
+  CLIENT = 'CLIENT',
+  UNVERIFIED_CLIENT = 'UNVERIFIED_CLIENT',
+}
 export type Username = string;
 
 export type AuthBody = {
