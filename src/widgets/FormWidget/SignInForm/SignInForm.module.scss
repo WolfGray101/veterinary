@@ -1,0 +1,221 @@
+.signInForm__container {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+  
+    & > img {
+      width: 200px;
+      height: 100px;
+    }
+  
+    & > .form__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+  
+      margin-top: 24px;
+      margin-bottom: 28px;
+  
+      & > h3 {
+        padding: 0;
+        margin: 0;
+  
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 28px;
+        color: #000000;
+      }
+  
+      & > span {
+        padding: 0;
+        margin: 0;
+  
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: rgba(26, 41, 61, 0.83);
+      }
+    }
+  
+    .form {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      & .additionalActions {
+        display: flex;
+        flex-wrap: nowrap;
+        height: 18px;
+    
+        & > .forgotPasswordLink {
+          display: flex;
+          align-items: flex-end;
+          margin-left: auto;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 16px;
+          color: #333333;
+    
+          & > span {
+            margin-top: auto;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  
+    & > .form__footer {
+      margin-top: 32px;
+  
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+  
+      & > span {
+        color: #000000;
+      }
+      
+      & > a {
+        margin-left: 2px;
+        text-decoration: none;
+        color: #1676F3;
+      }
+    }
+  }
+  
+.btn_submit {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    background: #1676F3;
+    border-radius: 4px;
+    border: 0;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  
+    & > span {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      color: #FFFFFF;
+    }
+  }
+
+.inputContainer {
+    box-sizing: border-box;
+}
+
+.input {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(24, 39, 58, 0.94);
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 57px;
+  border: 1px solid rgba(28, 55, 90, 0.16);
+  border-radius: 3px;
+  padding-left: 15px;
+
+  &::placeholder {
+      color: rgba(108, 126, 151, 0.94);
+  }
+
+  &:focus {
+      outline: none;
+      border: 1px solid #1676F3;
+  }
+
+  &Error {
+      outline: none;
+      border: 1px solid #f3163b;
+  }
+}
+
+.label {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  color: rgba(27, 43, 65, 0.72);
+  margin-bottom: 5px;
+}
+
+.errorMessage {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  color: red;
+  margin-bottom: -15px; // Компенсация размера сообщения об ошибки, чтобы контент снизу не уезжал вниз на размер сообщения
+}
+
+.passwordInput__container {
+    margin-bottom: -30px;
+
+    & .btn_toggleVisibility {
+        box-sizing: border-box;
+        height: 25px;
+        position: relative;
+        left: 300px;
+        bottom: 42px;
+        background-color: transparent;
+        border: 0;
+    }
+
+    & > .errorMessage {
+      position: relative;
+      bottom: 10px;
+    }
+}
+
+.checkbox__label {
+    display: flex;
+    align-items: flex-end;
+    height: 18px;
+
+    & > input {
+        display: none;
+
+        &:checked ~ span::before {
+            background: no-repeat center url('../../../assets/SignInForm/checkmark.svg');
+            background-color: #1676F3;
+        }
+    }
+
+    & > span::before {
+        display: block;
+        position: relative;
+        left: -24px;
+        bottom: -16px;
+        
+        content: '';
+        width: 18px;
+        height: 18px;
+        background: rgba(28, 55, 90, 0.16);
+        border-radius: 4px;
+    }
+
+    & > span {
+        margin-left: 23px;
+        font-size: 12px;
+        line-height: 15px;
+        color: rgba(27, 43, 65, 0.72);
+    }
+}
