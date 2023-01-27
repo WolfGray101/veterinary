@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Landing from '../view/Landing';
+import Landing from '../features/landing/Landing';
 import Header from '../widgets/HeaderWidget';
 import {
   AdminPage,
@@ -10,7 +10,7 @@ import {
   PetFindPage,
   SignInPage,
   SignUpPage,
-} from '../views';
+} from '../view';
 import Footer from '../widgets/FooterWidget';
 
 function App(): JSX.Element {

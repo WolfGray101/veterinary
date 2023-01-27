@@ -1,16 +1,16 @@
 import { SetStateAction, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../styles/Landing.scss';
+import '../../styles/Landing.scss';
+import doctor from '../../assets/Landing/rectangle137.webp';
 
-import doctor from '../assets/Landing/rectangle137.webp';
 import {
   animalClass,
   tabs,
   servicesList,
   aboutList,
   questionsList,
-} from '../const/LandingObjects';
+} from '../../const/LandingObjects';
 
 export default function Landing(): JSX.Element {
   const [active, setActive] = useState(0);
