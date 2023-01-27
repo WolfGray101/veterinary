@@ -1,6 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import Landing from '../view/Landing';
 import Header from '../widgets/HeaderWidget';
+import {
+  AdminPage,
+  ClientPage,
+  DoctorPage,
+  ForumPage,
+  ManagerPage,
+  PetFindPage,
+  SignInPage,
+  SignUpPage,
+} from '../views';
 import Footer from '../widgets/FooterWidget';
 
 function App(): JSX.Element {
@@ -10,15 +20,16 @@ function App(): JSX.Element {
       <div className="layout_page">
         <main>
           <Routes>
+
             <Route path="/" element={<Landing />} />
-            <Route path="/sign-up" element={<div>SignUp Page</div>} />
-            <Route path="/sign-in" element={<div>SignIn Page</div>} />
-            <Route path="/admin" element={<div>Admin Page</div>} />
-            <Route path="/client" element={<div>Client Page</div>} />
-            <Route path="/manager" element={<div>Manager Page</div>} />
-            <Route path="/doctor" element={<div>Doctor Page</div>} />
-            <Route path="/forum" element={<div>Forum Page</div>} />
-            <Route path="/petFindPage" element={<div>PetFind Page</div>} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/client" element={<ClientPage />} />
+            <Route path="/manager" element={<ManagerPage />} />
+            <Route path="/doctor" element={<DoctorPage />} />
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/petFindPage" element={<PetFindPage />} />
           </Routes>
         </main>
         <Footer />
