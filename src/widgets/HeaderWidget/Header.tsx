@@ -1,5 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
-import classes from '../../styles/header.module.scss';
+import classes from './Header.module.scss';
 import { routsHeaderArray } from './routs';
 
 function Header(): JSX.Element {
