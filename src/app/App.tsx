@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import Landing from '../view/Landing';
 import Header from '../widgets/HeaderWidget';
-
 import Footer from '../widgets/FooterWidget';
 
 function App(): JSX.Element {
@@ -10,7 +10,7 @@ function App(): JSX.Element {
       <div className="layout_page">
         <main>
           <Routes>
-            <Route path="/" element={<div>Main Page</div>} />
+            <Route path="/" element={<Landing />} />
             <Route path="/sign-up" element={<div>SignUp Page</div>} />
             <Route path="/sign-in" element={<div>SignIn Page</div>} />
             <Route path="/admin" element={<div>Admin Page</div>} />
