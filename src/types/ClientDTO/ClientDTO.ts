@@ -1,10 +1,12 @@
-type Pet = {
+import { PetType } from '../PetsDTO/PetsDTO';
+
+interface Pet {
   'id': number,
   'name': 'string',
   'avatar': 'string',
-  'birthDay': '2023-01-26',
-  'petType': 'CAT'
-};
+  'birthDay': string,
+  'petType': PetType,
+}
 
 export interface IClient {
   'firstname': 'string',
