@@ -179,9 +179,9 @@
         border: 0;
     }
 
-    & > .errorMessage {
+    & .errorMessage {
       position: relative;
-      bottom: 10px;
+      bottom: 30px;
     }
 }
 
