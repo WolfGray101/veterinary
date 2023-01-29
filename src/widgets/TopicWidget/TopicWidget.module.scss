@@ -3,9 +3,7 @@
 }
 
 .article {
-  margin: 0 auto;
   padding: 9.75px 20px 9.1px;
-  min-height: 64.7px;
   height: max-content;
   max-width: 1060px;
 
@@ -33,7 +31,7 @@
 
   &__link {
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-family: 'Inter';
     font-weight: 600;
     font-size: 14px;
@@ -121,19 +119,10 @@
   }
 }
 
-@media (max-width: 800.98px) {
+@media (max-width: 699.98px) {
   .article {
-    //grid-auto-columns: minmax(100px, auto);
     grid-template-columns: repeat(2, minmax(67.4px, auto));
     grid-template-rows: repeat(2, 1fr);
     justify-content: space-between;
-
-    &__link {
-      font-size: 12px;
-    }
-
-    &__content {
-      font-size: 10px
-    }
   }
 }

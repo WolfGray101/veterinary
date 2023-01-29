@@ -7,6 +7,7 @@ import classes from './TopicWidget.module.scss';
 
 import calendarIcon from '../../assets/TopicWidget/icons/calendar-icon.svg';
 import commentsIcon from '../../assets/TopicWidget/icons/comments-icon.svg';
+import editDateIcon from '../../assets/TopicWidget/icons/edit-icon.svg';
 
 interface ITopicWidgetProps {
   title: string,
@@ -30,7 +31,7 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
   const dateClass = mouseEnter ? classes.date__visible : classes.date__hidden;
 
   // Получаю вьюпорт и отрисовываю дивайдер при ширине > 800
-  const divider = window.innerWidth > 800 ? classes.divider : null;
+  const divider = window.innerWidth > 699.98 ? classes.divider : null;
 
   return (
     <article className={classes.article}>
@@ -61,7 +62,8 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
             </span>
           </div>
           <div className={classes.date}>
-            <img className={classes.date__icon} src={calendarIcon} alt='Calendar icon' />
+            {/* Не нашел иконку в файле, поставил заглушку -> запросить иконку у куратора проекта */}
+            <img className={classes.date__icon} src={editDateIcon} alt='Calendar icon' />
             <span className={classes.date__info}>
               {format(lastUpdateDate, 'dd.MM.yyyy HH:mm')}
             </span>
