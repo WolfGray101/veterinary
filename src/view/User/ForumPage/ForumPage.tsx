@@ -1,6 +1,6 @@
 import classes from './ForumPage.module.scss';
 
-function ForumPage() {
+function ForumPage(): JSX.Element {
   return (
     <section className={classes.wrapper}>
       <div className={classes.contentContainer}>
@@ -12,6 +12,9 @@ function ForumPage() {
         <main className={classes.content}>
           <ul className={classes.content__list} />
         </main>
+      </div>
+      <div className={classes.pagination}>
+        Pagination
       </div>
     </section>
   );

@@ -11,7 +11,7 @@
 }
 
 .contentContainer {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   display: flex;
   flex-direction: column;
 
@@ -45,4 +45,25 @@
     margin: 0 auto;
     width: 96.36%;
   }
+}
+
+.pagination {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+
+  margin: 0 auto;
+  max-width: 283px;
+  height: 27px;
+  background: #D9D9D9;
+  border: 1px dashed #000000;
+  border-radius: 3px;
 }
