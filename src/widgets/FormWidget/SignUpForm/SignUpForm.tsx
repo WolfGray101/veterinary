@@ -24,9 +24,7 @@ function SignUpForm(): JSX.Element {
         }}
         validateOnBlur
         validationSchema={signUpValidationSchema}
-        onSubmit={(e) => {
-          console.log(e);
-        }}
+        onSubmit={() => { }}
       >
         {({ errors, touched, handleChange, isValid, dirty, }) => (
           <div className={classes.formRegistered}>
