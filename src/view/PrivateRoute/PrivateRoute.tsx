@@ -7,9 +7,9 @@ interface IPrivateRouteProps {
 }
 
 const PrivateRoute = ({ children, necessaryRole }: IPrivateRouteProps): JSX.Element => {
-  const isAccessDenied = useCheckAccess(necessaryRole);
+  const isAccessAllowed = useCheckAccess(necessaryRole);
 
-  return isAccessDenied ? <Navigate to='/sign-in' replace /> : children;
+  return isAccessAllowed ? children : <Navigate to='/sign-in' replace />;
 };
 
 export default PrivateRoute;

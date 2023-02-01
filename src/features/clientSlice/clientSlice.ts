@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { IAuthResponse } from '../../types/AuthDTO/AuthDTO';
+import { IAuthResponse, Role } from '../../types/AuthDTO/AuthDTO';
 
 const initialState = {
   jwtToken: '',
-  role: 'UNVERIFIED_CLIENT',
+  role: Role.UNVERIFIED_CLIENT,
 };
 
 export const userSlice = createSlice({
