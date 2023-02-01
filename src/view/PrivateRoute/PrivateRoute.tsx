@@ -1,9 +1,10 @@
 import { Navigate } from 'react-router-dom';
 import { useCheckAccess } from '../../hooks/useCheckAccess';
+import { Role } from '../../types/AuthDTO/AuthDTO';
 
 interface IPrivateRouteProps {
   children: JSX.Element,
-  necessaryRole: string,
+  necessaryRole: Role,
 }
 
 const PrivateRoute = ({ children, necessaryRole }: IPrivateRouteProps): JSX.Element => {
