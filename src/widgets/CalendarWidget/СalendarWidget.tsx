@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import classes from './СalendarWidget.module.scss';
 import 'react-calendar/dist/Calendar.css';
 
-type FormatFunc = (y: Date) => void;
+type FormatFunc = (date: Date) => void;
 
 interface IProps {
   noEntry?: string[];
