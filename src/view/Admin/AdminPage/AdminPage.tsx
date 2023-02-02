@@ -50,7 +50,7 @@ function AdminPage() {
         <div className={classes.adminMain__wrapperContent}>
           <header className={classes.adminMain__header}>
             <h1 className={classes.adminMain__title}>
-              {`Admin / ${path[0].toUpperCase() + path.substring(1)}`}
+              {`Admin ${path ? `/ ${path[0].toUpperCase() + path.substring(1)}` : ''}`}
             </h1>
           </header>
           <section className={classes.adminMain__content}>

@@ -11,6 +11,13 @@
   flex: 1 1 287px;
   background-color: #5496D4;
   overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 
   transition: all 0.4s ease;
 }
@@ -87,6 +94,13 @@
   flex-direction: column;
   flex: 1 1 1153px;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 
   &__search {
     margin: 0 auto 30px;
