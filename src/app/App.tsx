@@ -1,6 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import Landing from '../features/landing/Landing';
-import Header from '../widgets/HeaderWidget';
 import {
   AdminPage,
   ClientPage,
@@ -10,7 +8,9 @@ import {
   PetFindPage,
   SignInPage,
   SignUpPage,
-} from '../view';
+} from 'view';
+import Landing from '../features/landing/Landing';
+import Header from '../widgets/HeaderWidget';
 import Footer from '../widgets/FooterWidget';
 
 function App(): JSX.Element {
