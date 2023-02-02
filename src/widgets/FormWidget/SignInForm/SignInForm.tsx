@@ -22,7 +22,7 @@ function SignInForm(): JSX.Element {
         }}
         validationSchema={signInValidationSchema}
       >
-        {({ errors, touched, isValid, dirty }) => (
+        {({ errors, handleChange, touched, isValid, dirty }) => (
           <Form className={classes.form}>
             <EmailOrNameInput
               label='Email Address'
@@ -30,28 +30,17 @@ function SignInForm(): JSX.Element {
               type='email'
               error={errors?.email}
               touched={touched?.email}
-              labelClassName={classes.label}
-              inputClassName={classes.input}
-              errorMessageClassName={classes.errorMessage}
-              inputErrorClassName={`${classes.input} ${classes.inputError}`}
-              inputContainerClassName={classes.inputContainer}
             />
             <PasswordInput
               label="Password"
               name="password"
               error={errors?.password}
               touched={touched?.password}
-              labelClassName={classes.label}
-              inputClassName={classes.input}
-              errorMessageClassName={classes.errorMessage}
-              inputErrorClassName={`${classes.input} ${classes.inputError}`}
-              inputContainerClassName={classes.passwordInput__container}
-              btnToggleVisibilityClassName={classes.btn_toggleVisibility}
             />
             <div className={classes.additionalActions}>
               <Checkbox
                 label="Remember me"
-                classNameLabel={classes.checkbox__label}
+                onChange={handleChange}
               />
               <a href="/#" className={classes.forgotPasswordLink}>
                 <span>Forgot Password?</span>

@@ -35,11 +35,6 @@ function SignUpForm(): JSX.Element {
                 type='text'
                 error={errors?.name}
                 touched={touched?.name}
-                labelClassName={classes.label}
-                inputClassName={classes.input}
-                errorMessageClassName={classes.errorMessage}
-                inputErrorClassName={classes.errorInput}
-                inputContainerClassName={classes.emailContainer}
               />
 
               <EmailOrNameInput
@@ -48,11 +43,6 @@ function SignUpForm(): JSX.Element {
                 type='email'
                 error={errors?.email}
                 touched={touched?.email}
-                labelClassName={classes.label}
-                inputClassName={classes.input}
-                errorMessageClassName={classes.errorMessage}
-                inputErrorClassName={classes.errorInput}
-                inputContainerClassName={classes.emailContainer}
               />
 
               <PasswordInput
@@ -60,12 +50,6 @@ function SignUpForm(): JSX.Element {
                 name='password'
                 error={errors?.password}
                 touched={touched?.password}
-                labelClassName={classes.label}
-                inputClassName={classes.input}
-                errorMessageClassName={classes.errorMessage}
-                inputErrorClassName={classes.errorInput}
-                inputContainerClassName={classes.passwordContainer}
-                btnToggleVisibilityClassName={classes.btn_toggleVisibility}
               />
 
               <PasswordInput
@@ -73,21 +57,16 @@ function SignUpForm(): JSX.Element {
                 name='confirmPassword'
                 error={errors?.confirmPassword}
                 touched={touched?.confirmPassword}
-                labelClassName={classes.label}
-                inputClassName={classes.input}
-                errorMessageClassName={classes.errorMessage}
-                inputErrorClassName={classes.errorInput}
-                inputContainerClassName={classes.passwordContainer}
-                btnToggleVisibilityClassName={classes.btn_toggleVisibility}
               />
 
               <Checkbox
                 label='I have read and agree to the '
-                linkLabel={(<a href='' className={classes.linkLabel}>Terms of Service</a>)}
-                classNameLabel={classes.checkbox_label}
+                error={errors?.checkbox}
+                touched={touched?.checkbox}
+                linkLabel={(<a href=''>Terms of Service</a>)}
                 onChange={handleChange}
               />
-              {touched?.checkbox && errors?.checkbox && <span className={classes.errorMessage}>{errors.checkbox}</span>}
+
               <button
                 className={classes.btn_formRegister}
                 disabled={!isValid && !dirty}
