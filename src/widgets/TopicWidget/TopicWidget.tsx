@@ -5,11 +5,14 @@ import { ru } from 'date-fns/locale';
 
 import classes from './TopicWidget.module.scss';
 
-import calendarIcon from '../../assets/TopicWidget/icons/calendar-icon.svg';
-import commentsIcon from '../../assets/TopicWidget/icons/comments-icon.svg';
-import editDateIcon from '../../assets/TopicWidget/icons/edit-icon.svg';
+import {
+  calendarIcon,
+  commentsIcon,
+  editIcon,
+} from '../../assets/TopicWidget/icons';
 
 interface ITopicWidgetProps {
+  id: number,
   title: string,
   content: string,
   creationDate: Date,
@@ -19,6 +22,7 @@ interface ITopicWidgetProps {
 }
 
 const TopicWidget: React.FC<ITopicWidgetProps> = ({
+  id,
   title,
   content,
   creationDate,
@@ -63,7 +67,7 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
           </div>
           <div className={classes.date}>
             {/* Не нашел иконку в файле, поставил заглушку -> запросить иконку у куратора проекта */}
-            <img className={classes.date__icon} src={editDateIcon} alt='Calendar icon' />
+            <img className={classes.date__icon} src={editIcon} alt='Calendar icon' />
             <span className={classes.date__info}>
               {format(lastUpdateDate, 'dd.MM.yyyy HH:mm')}
             </span>
