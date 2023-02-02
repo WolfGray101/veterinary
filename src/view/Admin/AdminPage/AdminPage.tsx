@@ -13,7 +13,12 @@ function AdminPage() {
   const path = useLocation().pathname.split('/')[2];
 
   const navigations = routs.map((element, index) => {
-    const itemStyle: CSSProperties = index === 5 ? { marginBottom: '46px' } : {};
+    // В соответствии с макетом, у элемента с индексом 5 увеличенный отступ. В случае, если высота меньше 666px
+    // Для улучшения адаптива я делаю увеличенный отступ чуть меньше.
+
+    const itemStyle: CSSProperties =
+      // eslint-disable-next-line no-nested-ternary
+      index !== 5 ? {} : window.innerHeight >= 666 ? { marginBottom: '46px' } : { marginBottom: '20px' };
 
     return (
       <li key={element.label} className={classes.navAdmin__item} style={itemStyle}>

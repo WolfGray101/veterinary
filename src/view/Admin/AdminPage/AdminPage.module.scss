@@ -164,6 +164,7 @@
   }
 
   .wrapperAside {
+    padding-top: 5px;
     flex: 0 0 65px;
   }
 
@@ -195,4 +196,8 @@
       margin: 0;
     }
   }
+}
+
+@media (max-height: 666px) {
+  
 }
