@@ -10,6 +10,16 @@ import {
   commentsIcon,
   editIcon,
 } from '../../assets/TopicWidget/icons';
+import { IUserInfoDto } from '../../types/UserDTO/UserDTO';
+
+interface ICommentDtoList {
+  id: number,
+  content: string,
+  dataTime: Date,
+  likes: number,
+  dislike: number,
+  userInfoDto: IUserInfoDto,
+}
 
 interface ITopicWidgetProps {
   id: number,
@@ -17,8 +27,8 @@ interface ITopicWidgetProps {
   content: string,
   creationDate: Date,
   lastUpdateDate: Date,
-  name: string,
-  commentsCount: number,
+  topicStarter: IUserInfoDto,
+  commentDtoList: ICommentDtoList[],
 }
 
 const TopicWidget: React.FC<ITopicWidgetProps> = ({
@@ -27,8 +37,8 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
   content,
   creationDate,
   lastUpdateDate,
-  name,
-  commentsCount }:ITopicWidgetProps): JSX.Element => {
+  topicStarter,
+  commentDtoList }:ITopicWidgetProps): JSX.Element => {
   const [mouseEnter, setMouseEnter] = useState<boolean>(false);
 
   // При наведении на блок даты возвращаю нужный класс
@@ -38,14 +48,16 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
   const divider = window.innerWidth > 699.98 ? classes.divider : null;
 
   return (
-    <article className={classes.article}>
+    <article key={id} className={classes.article}>
       <div className={classes.article__contentContainer}>
         <Link to="#" className={classes.article__link}>{title}</Link>
         <p className={classes.article__content}>{content}</p>
       </div>
       <div className={`${classes.article__userInfoContainer} ${divider}`}>
-        <img className={classes.article__userAvatar} src='#' alt='' />
-        <span className={classes.article__userName}>{name}</span>
+        <img className={classes.article__userAvatar} src='#' alt='User avatar' />
+        <span className={classes.article__userName}>
+          {`${topicStarter.firstname} ${topicStarter.lastname}`}
+        </span>
       </div>
       <div
         className={`${classes.article__dateContainer} ${divider}`}
@@ -76,7 +88,7 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
       </div>
       <div className={`${classes.article__commentsContainer} ${divider}`}>
         <img src={commentsIcon} alt='Comments icon' />
-        <span>{commentsCount}</span>
+        <span>{commentDtoList.length}</span>
       </div>
     </article>
   );
