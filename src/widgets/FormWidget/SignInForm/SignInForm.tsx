@@ -1,7 +1,8 @@
 import { Formik, Form } from 'formik';
 
 import image from '../../../assets/SignInForm/logo-middle.png';
-import { Checkbox, EmailOrNameInput, PasswordInput } from '../../../shared/TextField/TextField';
+import { EmailOrNameInput, PasswordInput } from '../../../shared/TextField/TextField';
+import Checkbox from '../../../shared/CheckBoxField/CheckBoxField';
 
 import signInValidationSchema from './schema';
 import classes from './SignInForm.module.scss';

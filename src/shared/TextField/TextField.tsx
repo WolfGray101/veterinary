@@ -2,7 +2,7 @@ import { Field } from 'formik';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { ICheckboxProps, IInputProps } from '../../types/InputFormType/InputFormType';
+import { IInputProps } from '../../types/InputFormType/InputFormType';
 import eye from '../../assets/SignInForm/eye.svg';
 import eye_disabled from '../../assets/SignInForm/eye-disabled.svg';
 
@@ -85,28 +85,6 @@ export const EmailOrNameInput = (props: IInputProps): JSX.Element => {
         type={type}
         placeholder={meaningPlaceholder}
       />
-      {errorMsg}
-    </div>
-  );
-};
-
-export const Checkbox = (props: ICheckboxProps): JSX.Element => {
-  const { label, error, touched, linkLabel, onChange } = props;
-
-  const errorMsg =
-    error && touched ? (
-      <span className={classes.errorMessage}>{error}</span>
-    ) : null;
-
-  return (
-    <div>
-      <label className={classes.checkbox_label}>
-        <Field name="checkbox" type="checkbox" onChange={onChange} />
-        <span>
-          {label}
-          {linkLabel}
-        </span>
-      </label>
       {errorMsg}
     </div>
   );
