@@ -24,7 +24,7 @@ export const userNotificationApi = createApi({
     getNotification: build.query({
       query: (id: Id) => `${id}`,
     }),
-    unnamedRequest: build.mutation({
+    markNotificationAsRead: build.mutation({
       query: (id: Id) => ({
         url: `${id}`,
         method: 'PUT',
@@ -33,5 +33,5 @@ export const userNotificationApi = createApi({
   }),
 });
 
-export const { useGetAllNotificationsQuery, useGetNotificationQuery, useUnnamedRequestMutation } =
+export const { useGetAllNotificationsQuery, useGetNotificationQuery, useMarkNotificationAsReadMutation } =
   userNotificationApi;
