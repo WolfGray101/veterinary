@@ -4,6 +4,7 @@ export interface IInputProps {
   type?: string;
   error?: string;
   touched?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ICheckboxProps {
@@ -11,5 +12,5 @@ export interface ICheckboxProps {
   error?: string;
   touched?: boolean;
   linkLabel?: JSX.Element;
-  onChange?: (e: React.ChangeEvent<boolean>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

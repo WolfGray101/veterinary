@@ -1,5 +1,4 @@
-import { Field } from 'formik';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { IInputProps } from '../../types/InputFormType/InputFormType';
@@ -8,7 +7,7 @@ import eye_disabled from '../../assets/SignInForm/eye-disabled.svg';
 
 import classes from './TextField.module.scss';
 
-export const PasswordInput = (props: IInputProps): JSX.Element => {
+export const PasswordInputInner = (props: IInputProps): JSX.Element => {
   const [visible, setVisible] = useState(false);
 
   const {
@@ -16,6 +15,7 @@ export const PasswordInput = (props: IInputProps): JSX.Element => {
     error,
     touched,
     name,
+    onChange,
   } = props;
   const fieldClasses =
     error && touched ? classes.errorInput : classes.input;
@@ -38,11 +38,12 @@ export const PasswordInput = (props: IInputProps): JSX.Element => {
         <span>{label}</span>
       </label>
 
-      <Field
+      <input
         className={fieldClasses}
         id={id}
         name={name}
         type={inputType}
+        onChange={onChange}
       />
       <button
         type="button"
@@ -56,13 +57,14 @@ export const PasswordInput = (props: IInputProps): JSX.Element => {
   );
 };
 
-export const EmailOrNameInput = (props: IInputProps): JSX.Element => {
+export const EmailOrNameInputInner = (props: IInputProps): JSX.Element => {
   const {
     label,
     error,
     name,
     type,
     touched,
+    onChange,
   } = props;
   const fieldClasses =
     error && touched ? classes.errorInput : classes.input;
@@ -78,14 +80,19 @@ export const EmailOrNameInput = (props: IInputProps): JSX.Element => {
       <label className={classes.label} htmlFor={id}>
         <span>{label}</span>
       </label>
-      <Field
+      <input
         className={fieldClasses}
         id={id}
         name={name}
         type={type}
         placeholder={meaningPlaceholder}
+        onChange={onChange}
       />
       {errorMsg}
     </div>
   );
 };
+
+export const EmailOrNameInput = memo(EmailOrNameInputInner);
+
+export const PasswordInput = memo(PasswordInputInner);
