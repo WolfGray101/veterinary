@@ -1,10 +1,9 @@
-import { Field } from 'formik';
-
+import { memo } from 'react';
 import { ICheckboxProps } from '../../types/InputFormType/InputFormType';
 
 import classes from './CheckBoxField.module.scss';
 
-const Checkbox = (props: ICheckboxProps): JSX.Element => {
+const CheckboxInner = (props: ICheckboxProps): JSX.Element => {
   const { label, error, touched, linkLabel, onChange } = props;
 
   const errorMsg =
@@ -15,7 +14,7 @@ const Checkbox = (props: ICheckboxProps): JSX.Element => {
   return (
     <div>
       <label className={classes.checkbox_label}>
-        <Field name="checkbox" type="checkbox" onChange={onChange} />
+        <input name="checkbox" type="checkbox" onChange={onChange} />
         <span>
           {label}
           {linkLabel}
@@ -26,4 +25,4 @@ const Checkbox = (props: ICheckboxProps): JSX.Element => {
   );
 };
 
-export default Checkbox;
+export const Checkbox = memo(CheckboxInner);
