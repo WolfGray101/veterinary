@@ -18,13 +18,13 @@ function Header(): JSX.Element {
       <ul className={classes.listLink}>{listLink}</ul>
       {/* buttons || RoleWidget */}
       <div className={classes.accountInfo}>
-        <Link className={classes.link_mobile} to="">
+        <Link className={classes.link_mobile} to="/sign-in">
           Аккаунт
         </Link>
-        <Link className={classes.link_signIn} to="">
+        <Link className={classes.link_signIn} to="/sign-in">
           Sign In
         </Link>
-        <Link className={classes.link_register} to="">
+        <Link className={classes.link_register} to="/sign-up">
           Register
         </Link>
       </div>
