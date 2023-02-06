@@ -33,7 +33,6 @@ function App(): JSX.Element {
       <div className="layout_page">
         <main>
           <Routes>
-
             <Route path="/" element={<Landing />} />
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
