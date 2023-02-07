@@ -91,8 +91,18 @@ function App(): JSX.Element {
               path="/doctor"
               element={<PrivateRoute necessaryRole={Role.DOCTOR}><DoctorPage /></PrivateRoute>}
             />
-            <Route path="/forum" element={<ForumPage />} />
-            <Route path="/petFindPage" element={<PetFindPage />} />
+            <Route
+              path="/forum"
+              element={
+                <PrivateRoute necessaryRole={[Role.ADMIN, Role.CLIENT, Role.DOCTOR, Role.MANAGER]}>
+                  <ForumPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/petFindPage"
+              element={<PrivateRoute necessaryRole={Role.CLIENT}><PetFindPage /></PrivateRoute>}
+            />
           </Routes>
         </main>
         <Footer />
