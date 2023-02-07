@@ -8,5 +8,5 @@ export const routsHeaderArray: Array<RoutsHeaderArray> = [
   { label: 'Список сосисок', path: '', },
   { label: 'Контакты', path: '', },
   { label: 'О нас', path: '', },
-  { label: 'Форум', path: '', },
+  { label: 'Форум', path: 'forum', },
 ];
