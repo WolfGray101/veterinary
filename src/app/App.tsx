@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import Landing from '../features/landing/Landing';
-import Header from '../widgets/HeaderWidget';
-import Footer from '../widgets/FooterWidget';
+import Landing from 'features/landing/Landing';
+import Header from 'widgets/HeaderWidget';
+import Footer from 'widgets/FooterWidget';
+import { Role } from 'types/AuthDTO/AuthDTO';
 
 import {
   AdminPage,
@@ -12,7 +13,8 @@ import {
   PetFindPage,
   SignInPage,
   SignUpPage,
-} from '../view';
+  PrivateRoute,
+} from 'view';
 
 import {
   AdminHomePage,
@@ -24,7 +26,7 @@ import {
   AdminSupportPage,
   AdminTopicPage,
   AdminUsersPage,
-} from '../view/Admin/AdminPage/pages';
+} from 'view/Admin/AdminPage/pages';
 
 function App(): JSX.Element {
   return (
@@ -36,20 +38,59 @@ function App(): JSX.Element {
             <Route path="/" element={<Landing />} />
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
-            <Route path="/admin" element={<AdminPage />}>
-              <Route path="home" element={<AdminHomePage />} />
-              <Route path="doctors" element={<AdminDoctorsPage />} />
-              <Route path="notification" element={<AdminNotificationsPage />} />
-              <Route path="users" element={<AdminUsersPage />} />
-              <Route path="topic" element={<AdminTopicPage />} />
-              <Route path="comments" element={<AdminCommentsPage />} />
-              <Route path="setting" element={<AdminSettingPage />} />
-              <Route path="support" element={<AdminSupportPage />} />
-              <Route path="privacy" element={<AdminPrivacyPage />} />
+            <Route
+              path="/admin"
+              element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminPage /></PrivateRoute>}
+            >
+              <Route
+                path="home"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminHomePage /></PrivateRoute>}
+              />
+              <Route
+                path="doctors"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminDoctorsPage /></PrivateRoute>}
+              />
+              <Route
+                path="notification"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminNotificationsPage /></PrivateRoute>}
+              />
+              <Route
+                path="users"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminUsersPage /></PrivateRoute>}
+              />
+              <Route
+                path="topic"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminTopicPage /></PrivateRoute>}
+              />
+              <Route
+                path="comments"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminCommentsPage /></PrivateRoute>}
+              />
+              <Route
+                path="setting"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminSettingPage /></PrivateRoute>}
+              />
+              <Route
+                path="support"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminSupportPage /></PrivateRoute>}
+              />
+              <Route
+                path="privacy"
+                element={<PrivateRoute necessaryRole={Role.ADMIN}><AdminPrivacyPage /></PrivateRoute>}
+              />
             </Route>
-            <Route path="/client" element={<ClientPage />} />
-            <Route path="/manager" element={<ManagerPage />} />
-            <Route path="/doctor" element={<DoctorPage />} />
+            <Route
+              path="/client"
+              element={<PrivateRoute necessaryRole={Role.CLIENT}><ClientPage /></PrivateRoute>}
+            />
+            <Route
+              path="/manager"
+              element={<PrivateRoute necessaryRole={Role.MANAGER}><ManagerPage /></PrivateRoute>}
+            />
+            <Route
+              path="/doctor"
+              element={<PrivateRoute necessaryRole={Role.DOCTOR}><DoctorPage /></PrivateRoute>}
+            />
             <Route path="/forum" element={<ForumPage />} />
             <Route path="/petFindPage" element={<PetFindPage />} />
           </Routes>
