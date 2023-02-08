@@ -15,3 +15,11 @@ export interface IClient {
   email: string,
   pets: Pet[]
 }
+
+export interface IPetFoundClientDto{
+  id: number,
+  latitude: string,
+  longitude: string,
+  message: string,
+  foundDate: string,
+}
