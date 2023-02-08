@@ -5,8 +5,7 @@ import { RootState } from '../../store/store';
 import { TUniqueId } from '../../types/UserDTO/UserDTO';
 
 export const petFoundApi = createApi({
-  reducerPath: 'topic',
-  tagTypes: ['topic'],
+  reducerPath: 'petFound',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://91.241.64.154:8080/api/client/petFound',
     prepareHeaders: (headers, { getState }) => {
