@@ -1,4 +1,5 @@
 import { FormikHelpers, useFormik } from 'formik';
+import { Link } from 'react-router-dom';
 
 import image from '../../../assets/SignInForm/logo-middle.png';
 import { Checkbox } from '../../../shared/CheckBoxField/CheckBoxField';
@@ -102,7 +103,7 @@ function SignUpForm(): JSX.Element {
       </form>
       <div className={classes.footer_formRegister}>
         <span>Already have an account?</span>
-        <a href="/#">Sign In</a>
+        <Link to="/sign-in">Sign In</Link>
       </div>
     </div>
   );

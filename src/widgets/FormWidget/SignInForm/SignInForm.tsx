@@ -1,5 +1,6 @@
 import { useFormik, FormikHelpers } from 'formik';
 
+import { Link } from 'react-router-dom';
 import image from '../../../assets/SignInForm/logo-middle.png';
 import { EmailOrNameInput, PasswordInput } from '../../../shared/TextField/TextField';
 import { Checkbox } from '../../../shared/CheckBoxField/CheckBoxField';
@@ -76,7 +77,7 @@ function SignInForm(): JSX.Element {
       </form>
       <div className={classes.form__footer}>
         <span>Don’t have an account?</span>
-        <a href="/#">Sign Up</a>
+        <Link to="/sign-up">Sign Up</Link>
       </div>
     </div>
   );
