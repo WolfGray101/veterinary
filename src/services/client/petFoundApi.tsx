@@ -20,7 +20,7 @@ export const petFoundApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getPetFoundHistory: build.query<IPetFoundClientDto, TUniqueId>({
+    getPetFoundHistory: build.query<IPetFoundClientDto[], TUniqueId>({
       query: (id: TUniqueId) => ({ url: `?petId=${id}` }),
     }),
   }),
