@@ -1,9 +1,10 @@
 import { useFormik, FormikHelpers } from 'formik';
 
 import { Link } from 'react-router-dom';
-import image from '../../../assets/SignInForm/logo-middle.png';
-import { EmailOrNameInput, PasswordInput } from '../../../shared/TextField/TextField';
-import { Checkbox } from '../../../shared/CheckBoxField/CheckBoxField';
+import { useGetTokenWithRoleMutation } from 'services/Auth/AuthAPI';
+import image from 'assets/SignInForm/logo-middle.png';
+import { EmailOrNameInput, PasswordInput } from 'shared/TextField/TextField';
+import { Checkbox } from 'shared/CheckBoxField/CheckBoxField';
 
 import signInValidationSchema from './schema';
 import classes from './SignInForm.module.scss';
@@ -14,6 +15,8 @@ function SignInForm(): JSX.Element {
     password?: string,
     checkbox?: boolean,
   }
+
+  const [login] = useGetTokenWithRoleMutation();
 
   const initialValues: IValues = { email: '', password: '', checkbox: false };
 
