@@ -1,17 +1,36 @@
-import { useGetAllBaseTopicsQuery } from 'services/user/TopicApi';
+import { Spin, Alert } from 'antd';
 
 import TopicWidget from 'widgets/TopicWidget/TopicWidget';
+
+import { useGetAllBaseTopicsQuery } from 'services/user/TopicApi';
 
 import classes from './ForumPage.module.scss';
 
 function ForumPage(): JSX.Element {
   const { data = [], isLoading, isError } = useGetAllBaseTopicsQuery();
 
-  if (isError) return <div>Что-то пошло не так</div>;
+  const errorMessage = isError
+    ? (
+      <Alert
+        message="Упс, что-то пошло не так"
+        description="Попробуйте позже"
+        type="error"
+        showIcon
+        closable
+      />
+    ) : null;
 
-  if (isLoading) return <div>Загрузка...</div>;
+  const loading = isLoading
+    ? (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Spin size="large" />
+      </div>
+    ) : null;
 
-  console.log(data);
+  const topics = data.map((el) => (
+    <li key={el.id}>
+      <TopicWidget {...el} />
+    </li>));
 
   return (
     <section className={classes.wrapper}>
@@ -22,7 +41,11 @@ function ForumPage(): JSX.Element {
           </h1>
         </header>
         <main className={classes.content}>
-          <ul className={classes.content__list} />
+          {errorMessage}
+          {loading}
+          <ul className={classes.content__list}>
+            {topics}
+          </ul>
         </main>
       </div>
       <div className={classes.pagination}>

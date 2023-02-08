@@ -49,13 +49,14 @@
     align-items: center;
     column-gap: 10px;
     cursor: pointer;
+
   }
 
   &__userAvatar {
-    min-width: 30px;
-    min-height: 29.26px;
+    max-width: 30px;
+    height: 30px;
     background: #D9D9D9;
-    border-radius: 100% ;
+    border-radius: 50% ;
   }
 
   &__userName {

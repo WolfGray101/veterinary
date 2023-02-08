@@ -25,10 +25,10 @@ export interface ITopicDto {
   id: TUniqueId;
   title: string;
   content: string;
-  creationDate: Date;
-  lastUpdateDate: Date;
+  creationDate: string;
+  lastUpdateDate: string;
   topicStarter: IUserInfoDto;
-  commentDtoList: ICommentDto;
+  commentDtoList: ICommentDto[];
 }
 
 export interface IProfileDto {

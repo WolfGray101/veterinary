@@ -1,34 +1,25 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
-
-import classes from './TopicWidget.module.scss';
 
 import {
   calendarIcon,
   commentsIcon,
   editIcon,
-} from '../../assets/TopicWidget/icons';
-import { IUserInfoDto } from '../../types/UserDTO/UserDTO';
+} from 'assets/TopicWidget/icons';
+import { ICommentDto, IUserInfoDto } from 'types/UserDTO/UserDTO';
 
-interface ICommentDtoList {
-  id: number,
-  content: string,
-  dataTime: Date,
-  likes: number,
-  dislike: number,
-  userInfoDto: IUserInfoDto,
-}
+import classes from './TopicWidget.module.scss';
 
-interface ITopicWidgetProps {
+export interface ITopicWidgetProps {
   id: number,
   title: string,
   content: string,
-  creationDate: Date,
-  lastUpdateDate: Date,
+  creationDate: string,
+  lastUpdateDate: string,
   topicStarter: IUserInfoDto,
-  commentDtoList: ICommentDtoList[],
+  commentDtoList: ICommentDto[],
 }
 
 const TopicWidget: React.FC<ITopicWidgetProps> = ({
@@ -67,21 +58,20 @@ const TopicWidget: React.FC<ITopicWidgetProps> = ({
         <div className={classes.date}>
           <img className={classes.date__icon} src={calendarIcon} alt='Calendar icon' />
           <span className={classes.date__info}>
-            {format(creationDate, 'd LLLL, HH:mm', { locale: ru })}
+            {format(parseISO(creationDate), 'd LLLL, HH:mm', { locale: ru })}
           </span>
         </div>
         <div className={dateClass}>
           <div className={classes.date}>
             <img className={classes.date__icon} src={calendarIcon} alt='Calendar icon' />
             <span className={classes.date__info}>
-              {format(creationDate, 'dd.MM.yyyy HH:mm')}
+              {format(parseISO(creationDate), 'dd.MM.yyyy HH:mm')}
             </span>
           </div>
           <div className={classes.date}>
-            {/* Не нашел иконку в файле, поставил заглушку -> запросить иконку у куратора проекта */}
             <img className={classes.date__icon} src={editIcon} alt='Calendar icon' />
             <span className={classes.date__info}>
-              {format(lastUpdateDate, 'dd.MM.yyyy HH:mm')}
+              {format(parseISO(lastUpdateDate), 'dd.MM.yyyy HH:mm')}
             </span>
           </div>
         </div>
