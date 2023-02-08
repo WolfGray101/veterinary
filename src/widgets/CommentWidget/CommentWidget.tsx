@@ -1,7 +1,8 @@
 import { format, parseJSON } from 'date-fns';
 
 import { ICommentDto } from 'types/UserDTO/UserDTO';
-import { useAppSelector } from 'hooks/redux';
+// import { useAppSelector } from 'hooks/redux';
+import { useToggleLikeMutation, useDeleteCommentMutation } from 'services/user/CommentApi';
 import { ru } from 'date-fns/locale';
 
 import fingerUp from 'assets/CommentWidget/FingerUp.svg';
@@ -9,8 +10,65 @@ import busya from 'assets/CommentWidget/Busya.jpg';
 
 import classes from './CommentWidget.module.scss';
 
-const CommentWidget = ({ content, dateTime, likes, dislike, UserInfoDto }: ICommentDto): JSX.Element => {
-  const user = useAppSelector((state) => state.user);
+interface ILikesControllerProps {
+  likes: number,
+  dislike: number,
+  id: number
+}
+
+interface IContentControllerProps {
+  id: number,
+}
+
+const LikesController = ({ id, likes, dislike }:ILikesControllerProps):JSX.Element => {
+  const [putLike] = useToggleLikeMutation();
+  const [putDislike] = useToggleLikeMutation();
+
+  return (
+    <div className={classes.likes__controller}>
+      <button
+        type="button"
+        className={classes.like}
+        onClick={() => putLike({ id, positive: true })}
+      >
+        <img src={fingerUp} alt="Put like" />
+        <span>{likes}</span>
+      </button>
+      <button
+        type="button"
+        className={classes.dislike}
+        onClick={() => putDislike({ id, positive: false })}
+      >
+        <img src={fingerUp} alt="Put dislike" />
+        <span>{dislike}</span>
+      </button>
+    </div>
+  );
+};
+
+const ContentController = ({ id }:IContentControllerProps):JSX.Element => {
+  const [deleteComment] = useDeleteCommentMutation();
+
+  return (
+    <div className={classes.content__controller}>
+      <button
+        className={classes.edit}
+      >
+        <span>Edit</span>
+      </button>
+      <button
+        className={classes.delete}
+        onClick={() => deleteComment(id)}
+      >
+        <span>Delete</span>
+      </button>
+    </div>
+  );
+};
+
+const CommentWidget = ({ id, content, dateTime, likes, dislike, UserInfoDto }: ICommentDto): JSX.Element => {
+  // const user = useAppSelector((state) => state.user);
+  // const authorId = UserInfoDto.id;
   const authorName = `${UserInfoDto.firstname} ${UserInfoDto.lastname}`;
   const date = format(parseJSON(dateTime), 'd LLLL yyyy', { locale: ru });
 
@@ -24,21 +82,9 @@ const CommentWidget = ({ content, dateTime, likes, dislike, UserInfoDto }: IComm
         <div className={classes.date}><span>{date}</span></div>
         <div className={classes.content}>
           <p>{content}</p>
-          <div className={classes.content__controller}>
-            <button className={classes.edit}><span>Edit</span></button>
-            <button className={classes.delete}><span>Delete</span></button>
-          </div>
+          <ContentController id={id} />
         </div>
-        <div className={classes.likes__controller}>
-          <button className={classes.like}>
-            <img src={fingerUp} alt="Put like" />
-            <span>{likes}</span>
-          </button>
-          <button className={classes.dislike}>
-            <img src={fingerUp} alt="Put dislike" />
-            <span>{dislike}</span>
-          </button>
-        </div>
+        <LikesController id={id} likes={likes} dislike={dislike} />
       </div>
     </li>
   );

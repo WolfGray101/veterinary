@@ -3,6 +3,7 @@
   display: flex;
 
    & > .authorInfo {
+    flex-shrink: 2;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -70,6 +71,7 @@
         color: #3A4045;
         margin: 0;
         margin-right: 10px;
+        word-break: break-all;
       }
     }
 
@@ -107,6 +109,32 @@
       & .delete {
         background-color: #E8454D;
         border-top: 0;
+      }
+    }
+
+    & > .likes__controller {
+      margin-left: auto;
+
+      & > button {
+        background-color: transparent;
+        border: 0;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 90%;
+        }
+
+        & > img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      & > .dislike {
+
+        & > img {
+          rotate: 180deg;
+        }
       }
     }
   }
