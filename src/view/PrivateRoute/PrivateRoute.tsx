@@ -4,7 +4,7 @@ import { Role } from '../../types/AuthDTO/AuthDTO';
 
 interface IPrivateRouteProps {
   children: JSX.Element,
-  necessaryRole: Role,
+  necessaryRole: Role | Role[],
 }
 
 const PrivateRoute = ({ children, necessaryRole }: IPrivateRouteProps): JSX.Element => {
