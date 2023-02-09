@@ -24,7 +24,7 @@ export const topicApi = createApi({
   reducerPath: 'topic',
   tagTypes: ['topic'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://91.241.64.154:8080/api/ser/',
+    baseUrl: 'http://91.241.64.154:8080/api/user/',
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).user.jwtToken;
 

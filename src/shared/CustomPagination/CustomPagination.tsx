@@ -28,7 +28,7 @@ const PaginationItem = ({ page, setPage, isCurrent = false } :IPaginationPage): 
 
 export const CustomPagination = ({
   totalItems, itemsOnPage, currentPage, leftRight = 2, setPage }: IPaginationProps): JSX.Element => {
-  const totalPages = totalItems / itemsOnPage;
+  const totalPages = totalItems % itemsOnPage ? (totalItems / itemsOnPage) + 1 : totalItems / itemsOnPage;
   const leftEdge = currentPage - leftRight;
   const rightEdge = currentPage + leftRight;
   const itemsToRender = leftRight * 2 + 1;
