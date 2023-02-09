@@ -21,3 +21,5 @@ export const userSlice = createSlice({
     }
   }
 });
+
+export const { pushAuth, logout } = userSlice.actions;
