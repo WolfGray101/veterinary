@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+// eslint-disable-next-line import/no-cycle
 import { RootState } from '../../store/store';
 import { IProfileDto } from '../../types/UserDTO/UserDTO';
 
 export const userProfileApi = createApi({
-  reducerPath: 'profileApi',
+  reducerPath: 'userProfileApi',
   tagTypes: ['profileApi'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://91.241.64.154:8080/api/user/',
@@ -16,9 +17,11 @@ export const userProfileApi = createApi({
       return headers;
     },
   }),
+
   endpoints: (build) => ({
     getProfile: build.query({
       query: () => 'profile',
+      providesTags: ['profileApi'],
     }),
     updProfile: build.mutation({
       query: (body: IProfileDto) => ({
