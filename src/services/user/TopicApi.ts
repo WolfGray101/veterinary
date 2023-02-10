@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// eslint-disable-next-line import/no-cycle
 import { RootState } from '../../store/store';
+
 import { ITopicDto, ICommentDto, TUniqueId } from '../../types/UserDTO/UserDTO';
 
 type CreateTopic = Pick<ITopicDto, 'title' | 'content'>;
@@ -39,9 +41,27 @@ export const topicApi = createApi({
     }),
     getAllYourTopics: build.query<ITopicDto[], void>({
       query: () => ({ url: 'topic/yourTopics' }),
+      providesTags: (result) => (result
+        ?
+        [
+          ...result.map(({ id }) => ({ type: 'topic', id } as const)),
+          { type: 'topic', id: 'LIST' },
+        ]
+        :
+        [{ type: 'topic', id: 'LIST' }]),
     }),
     getAllBaseTopics: build.query<ITopicDto[], void>({
-      query: () => ({ url: 'topic/allTopics' }),
+      query: () => ({
+        url: 'topic/allTopics',
+      }),
+      providesTags: (result) => (result
+        ?
+        [
+          ...result.map(({ id }) => ({ type: 'topic', id } as const)),
+          { type: 'topic', id: 'LIST' },
+        ]
+        :
+        [{ type: 'topic', id: 'LIST' }]),
     }),
     deleteTopicById: build.mutation<void, TUniqueId>({
       query: (id: TUniqueId) => ({
