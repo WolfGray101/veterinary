@@ -1,26 +1,29 @@
 import { useFormik, FormikHelpers } from 'formik';
-
 import { Link } from 'react-router-dom';
+
 import { useGetTokenWithRoleMutation } from 'services/Auth/AuthAPI';
 import image from 'assets/SignInForm/logo-middle.png';
 import { EmailOrNameInput, PasswordInput } from 'shared/TextField/TextField';
 import { Checkbox } from 'shared/CheckBoxField/CheckBoxField';
-
+import { useEffect } from 'react';
+import { useAuthSuccess } from 'hooks/useAuthSuccess';
 import signInValidationSchema from './schema';
 import classes from './SignInForm.module.scss';
 
 function SignInForm(): JSX.Element {
   interface IValues {
-    email?: string,
-    password?: string,
-    checkbox?: boolean,
+    email: string,
+    password: string,
+    checkbox: boolean,
   }
 
-  const [login] = useGetTokenWithRoleMutation();
-
+  const [login, { data, isSuccess }] = useGetTokenWithRoleMutation();
   const initialValues: IValues = { email: '', password: '', checkbox: false };
 
+  const { dispatchAuth, redirect } = useAuthSuccess();
+
   const onFormSubmit = (values: IValues, actions: FormikHelpers<IValues>) : void => {
+    login({ username: values.email, password: values.password });
     actions.setSubmitting(false);
   };
 
@@ -30,6 +33,13 @@ function SignInForm(): JSX.Element {
     validateOnBlur: true,
     validationSchema: signInValidationSchema,
   });
+
+  useEffect(() => {
+    if (isSuccess && data) {
+      dispatchAuth(data);
+      redirect(data);
+    }
+  }, [isSuccess, data, dispatchAuth, redirect]);
 
   return (
     <div className={classes.signInForm__container}>
