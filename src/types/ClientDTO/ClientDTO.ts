@@ -15,3 +15,29 @@ export interface IClient {
   email: string,
   pets: Pet[]
 }
+
+export interface IPetFoundClientDto {
+  id: number,
+  latitude: string,
+  longitude: string,
+  message: string,
+  foundDate: string,
+}
+
+export interface ILocalTime {
+  hour: number,
+  minute: number,
+  second: number,
+  nano: number,
+}
+export interface IAppointmentDayElementDto {
+  time: ILocalTime,
+  available: boolean
+}
+export interface IAppointmentCalendarElementDto {
+  date: string,
+  appointments: IAppointmentDayElementDto[]
+}
+export interface IAppointmentCallendarDto {
+  days: IAppointmentCalendarElementDto[]
+}

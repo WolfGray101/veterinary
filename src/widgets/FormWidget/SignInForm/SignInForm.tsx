@@ -1,75 +1,60 @@
-import { Formik, Field, Form } from 'formik';
-import { useState } from 'react';
-import classes from './SignInForm.module.scss';
-import image from '../../../assets/SignInForm/logo-middle.png';
-import eye from '../../../assets/SignInForm/eye.svg';
-import eye_disabled from '../../../assets/SignInForm/eye-disabled.svg';
+import { useFormik, FormikHelpers } from 'formik';
+import { Link } from 'react-router-dom';
+
+import { useGetTokenWithRoleMutation } from 'services/Auth/AuthAPI';
+import image from 'assets/SignInForm/logo-middle.png';
+import { EmailOrNameInput, PasswordInput } from 'shared/TextField/TextField';
+import { Checkbox } from 'shared/CheckBoxField/CheckBoxField';
+import { useEffect } from 'react';
+import { useAuthSuccess } from 'hooks/useAuthSuccess';
+import { pushAuth } from 'features/userSlice/userSlice';
 import signInValidationSchema from './schema';
+import classes from './SignInForm.module.scss';
 
-interface IInputProps {
-  label: string;
-  error?: string;
-  touched?: boolean;
-}
+function SignInForm(): JSX.Element {
+  interface IValues {
+    email: string;
+    password: string;
+    checkbox: boolean;
+  }
 
-interface ICheckboxProps {
-  label: string;
-}
+  const [login, { data, isSuccess }] = useGetTokenWithRoleMutation();
+  const initialValues: IValues = { email: '', password: '', checkbox: false };
 
-const EmailInput = (props: IInputProps): JSX.Element => {
-  const { label, error, touched } = props;
-  const fieldClasses = error && touched ? `${classes.input} ${classes.inputError}` : `${classes.input}`;
-  const errorMsg = error && touched ? <span className={classes.errorMessage}>{error}</span> : null;
+  const { dispatchAuth, redirect } = useAuthSuccess();
 
-  return (
-    <div className={classes.inputContainer}>
-      <label className={classes.label} htmlFor="email">
-        <span>{label}</span>
-      </label>
-      <Field className={fieldClasses} id="email" name="email" type="email" placeholder="mail@mail.com" />
-      {errorMsg}
-    </div>
-  );
-};
-
-const PasswordInput = (props: IInputProps): JSX.Element => {
-  const [visible, setVisible] = useState(false);
-
-  const { label, error, touched } = props;
-  const fieldClasses = error && touched ? `${classes.input} ${classes.inputError}` : `${classes.input}`;
-  const icon = visible ? eye_disabled : eye;
-  const alt = visible ? 'hide password' : 'show password';
-  const inputType = visible ? 'text' : 'password';
-  const errorMsg = error && touched ? <span className={classes.errorMessage}>{error}</span> : null;
-
-  const changeVisibility = ():void => {
-    setVisible((prev) => !prev);
+  const onFormSubmit = (
+    values: IValues,
+    actions: FormikHelpers<IValues>
+  ): void => {
+    login({ username: values.email, password: values.password });
+    actions.setSubmitting(false);
   };
 
-  return (
-    <div className={classes.passwordInput__container}>
-      <label className={classes.label} htmlFor="password">
-        <span>{label}</span>
-      </label>
-      <Field className={fieldClasses} id="password" name="password" type={inputType} />
-      <button type="button" className={classes.btn_toggleVisibility} onClick={changeVisibility}>
-        <img src={icon} alt={alt} />
-      </button>
-      {errorMsg}
-    </div>
-  );
-};
+  const {
+    errors,
+    touched,
+    isValid,
+    dirty,
+    handleChange,
+    handleSubmit,
+    handleReset,
+  } = useFormik({
+    initialValues,
+    onSubmit: onFormSubmit,
+    validateOnBlur: true,
+    validationSchema: signInValidationSchema,
+  });
 
-const Checkbox = ({ label }: ICheckboxProps): JSX.Element => (
-  <div>
-    <label className={classes.checkbox__label}>
-      <Field className="" name="checkbox" type="checkbox" />
-      <span>{label}</span>
-    </label>
-  </div>
-);
+  useEffect(() => {
+    if (isSuccess && data) {
+      console.log(data);
+      pushAuth(data);
+      dispatchAuth(data);
+      redirect(data);
+    }
+  }, [isSuccess, data, dispatchAuth, redirect]);
 
-function SignInForm() : JSX.Element {
   return (
     <div className={classes.signInForm__container}>
       <img src={image} alt="Sweet pets" />
@@ -77,31 +62,46 @@ function SignInForm() : JSX.Element {
         <h3>Log in to your Account</h3>
         <span>Welcome back, please enter your details.</span>
       </div>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validateOnBlur
-        onSubmit={(values, actions) => {
-          actions.setSubmitting(false);
+      <form
+        className={classes.form}
+        onReset={handleReset}
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSubmit(event);
         }}
-        validationSchema={signInValidationSchema}
       >
-        { ({ errors, touched, isValid, dirty }) => (
-          <Form className={classes.form}>
-            <EmailInput label="Email Address" error={errors?.email} touched={touched?.email} />
-            <PasswordInput label="Password" error={errors?.password} touched={touched?.password} />
-            <div className={classes.additionalActions}>
-              <Checkbox label="Remember me" />
-              <a href="/#" className={classes.forgotPasswordLink}><span>Forgot Password?</span></a>
-            </div>
-            <button className={classes.btn_submit} type='submit' disabled={!isValid && !dirty}><span>Log in</span></button>
-          </Form>
-        )}
-      </Formik>
+        <EmailOrNameInput
+          label="Email Address"
+          name="email"
+          type="email"
+          error={errors?.email}
+          touched={touched?.email}
+          onChange={handleChange}
+        />
+        <PasswordInput
+          label="Password"
+          name="password"
+          error={errors?.password}
+          touched={touched?.password}
+          onChange={handleChange}
+        />
+        <div className={classes.additionalActions}>
+          <Checkbox label="Remember me" onChange={handleChange} />
+          <a href="/#" className={classes.forgotPasswordLink}>
+            <span>Forgot Password?</span>
+          </a>
+        </div>
+        <button
+          className={classes.btn_submit}
+          type="submit"
+          disabled={!isValid && !dirty}
+        >
+          <span>Log in</span>
+        </button>
+      </form>
       <div className={classes.form__footer}>
-        <span>
-          Don’t have an account?
-        </span>
-        <a href="/#">Sign Up</a>
+        <span>Don’t have an account?</span>
+        <Link to="/sign-up">Sign Up</Link>
       </div>
     </div>
   );

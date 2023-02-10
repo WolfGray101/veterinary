@@ -1,6 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authApi } from '../services/Auth/AuthAPI';
+// eslint-disable-next-line import/no-cycle
+import { topicApi } from '../services/user/TopicApi';
+
 import { userSlice } from '../features/userSlice/userSlice';
 // eslint-disable-next-line import/no-cycle
 import { userProfileApi } from '../services/user/userProfileApi';

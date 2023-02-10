@@ -1,4 +1,4 @@
-type TUniqueId = number;
+export type TUniqueId = number;
 
 export interface ITopicDtoPut {
   title: string;
@@ -28,7 +28,7 @@ export interface ITopicDto {
   creationDate: string;
   lastUpdateDate: string;
   topicStarter: IUserInfoDto;
-  commentDtoList: ICommentDto;
+  commentDtoList: ICommentDto[];
 }
 
 export interface IProfileDto {

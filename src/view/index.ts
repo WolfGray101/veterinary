@@ -7,6 +7,7 @@ import ManagerPage from './Manager/ManagerPage/ManagerPage';
 import PetFindPage from './Client/PetFindPage/PetFindPage';
 import SignInPage from './Auth/SignInPage/SignInPage';
 import SignUpPage from './Auth/SignUpPage/SignUpPage';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 export {
   AdminPage,
@@ -18,4 +19,5 @@ export {
   PetFindPage,
   SignInPage,
   SignUpPage,
+  PrivateRoute,
 };
