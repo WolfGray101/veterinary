@@ -7,14 +7,15 @@ import { EmailOrNameInput, PasswordInput } from 'shared/TextField/TextField';
 import { Checkbox } from 'shared/CheckBoxField/CheckBoxField';
 import { useEffect } from 'react';
 import { useAuthSuccess } from 'hooks/useAuthSuccess';
+import { pushAuth } from 'features/userSlice/userSlice';
 import signInValidationSchema from './schema';
 import classes from './SignInForm.module.scss';
 
 function SignInForm(): JSX.Element {
   interface IValues {
-    email: string,
-    password: string,
-    checkbox: boolean,
+    email: string;
+    password: string;
+    checkbox: boolean;
   }
 
   const [login, { data, isSuccess }] = useGetTokenWithRoleMutation();
@@ -22,12 +23,23 @@ function SignInForm(): JSX.Element {
 
   const { dispatchAuth, redirect } = useAuthSuccess();
 
-  const onFormSubmit = (values: IValues, actions: FormikHelpers<IValues>) : void => {
+  const onFormSubmit = (
+    values: IValues,
+    actions: FormikHelpers<IValues>
+  ): void => {
     login({ username: values.email, password: values.password });
     actions.setSubmitting(false);
   };
 
-  const { errors, touched, isValid, dirty, handleChange, handleSubmit, handleReset } = useFormik({
+  const {
+    errors,
+    touched,
+    isValid,
+    dirty,
+    handleChange,
+    handleSubmit,
+    handleReset,
+  } = useFormik({
     initialValues,
     onSubmit: onFormSubmit,
     validateOnBlur: true,
@@ -36,6 +48,8 @@ function SignInForm(): JSX.Element {
 
   useEffect(() => {
     if (isSuccess && data) {
+      console.log(data);
+      pushAuth(data);
       dispatchAuth(data);
       redirect(data);
     }
@@ -57,9 +71,9 @@ function SignInForm(): JSX.Element {
         }}
       >
         <EmailOrNameInput
-          label='Email Address'
-          name='email'
-          type='email'
+          label="Email Address"
+          name="email"
+          type="email"
           error={errors?.email}
           touched={touched?.email}
           onChange={handleChange}
@@ -72,10 +86,7 @@ function SignInForm(): JSX.Element {
           onChange={handleChange}
         />
         <div className={classes.additionalActions}>
-          <Checkbox
-            label="Remember me"
-            onChange={handleChange}
-          />
+          <Checkbox label="Remember me" onChange={handleChange} />
           <a href="/#" className={classes.forgotPasswordLink}>
             <span>Forgot Password?</span>
           </a>

@@ -3,9 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { IAuthResponse, Role } from '../../types/AuthDTO/AuthDTO';
 
 const initialState = {
-  jwtToken: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjc1NzgxMzc1LCJleHAiOjE2Nzc3ODEzNzV9.T5S' +
-    'PXzCg1fZ4_fF-vCpX4GDUPyfr3Mx9SLnntkAQHfo-AYNzNAYE7m7fZfQnut7UES17a259WIkHjGeDnqR7rw',
-  role: Role.ADMIN,
+  jwtToken: '',
+  role: Role.UNVERIFIED_CLIENT,
 };
 
 export const userSlice = createSlice({
