@@ -4,6 +4,7 @@ import { IProfileDto } from '../../types/UserDTO/UserDTO';
 
 export const userProfileApi = createApi({
   reducerPath: 'profileApi',
+  tagTypes: ['profileApi'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://91.241.64.154:8080/api/user/',
     prepareHeaders: (headers, { getState }) => {
@@ -25,6 +26,7 @@ export const userProfileApi = createApi({
         method: 'PUT',
         body,
       }),
+      invalidatesTags: ['profileApi'],
     }),
   }),
 });
