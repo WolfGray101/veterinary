@@ -1,14 +1,12 @@
 import { useFormik, FormikHelpers } from 'formik';
-
 import { Link } from 'react-router-dom';
+
 import { useGetTokenWithRoleMutation } from 'services/Auth/AuthAPI';
+import image from 'assets/SignInForm/logo-middle.png';
+import { EmailOrNameInput, PasswordInput } from 'shared/TextField/TextField';
+import { Checkbox } from 'shared/CheckBoxField/CheckBoxField';
 import { useEffect } from 'react';
 import { useAuthSuccess } from 'hooks/useAuthSuccess';
-
-import image from '../../../assets/SignInForm/logo-middle.png';
-import { EmailOrNameInput, PasswordInput } from '../../../shared/TextField/TextField';
-import { Checkbox } from '../../../shared/CheckBoxField/CheckBoxField';
-
 import signInValidationSchema from './schema';
 import classes from './SignInForm.module.scss';
 

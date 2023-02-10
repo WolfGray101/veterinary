@@ -16,6 +16,13 @@ export interface IClient {
   pets: Pet[]
 }
 
+export interface IPetFoundClientDto{
+  id: number,
+  latitude: string,
+  longitude: string,
+  message: string,
+  foundDate: string,
+
 export interface ILocalTime {
   hour: number,
   minute: number,
